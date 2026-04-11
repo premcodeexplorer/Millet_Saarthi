@@ -1,0 +1,36 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Maharashtra - March, 2026",,
+District,"Prices March, 2026 (Rs./Quintal)","Prices February, 2026 (Rs./Quintal)","Prices March, 2025 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,4171.13,3894.89,3144.38,7.1%,32.6%
+Akola,2324.63,1952.63,2051.16,19.1%,13.3%
+Amarawati,-,2000.0,1958.95,-,-
+Beed,3139.43,3219.94,2421.79,-2.5%,29.6%
+Buldhana,2259.49,2026.82,1904.02,11.5%,18.7%
+Chattrapati Sambhajinagar,3701.65,3527.03,2653.23,5.0%,39.5%
+Dharashiv(Usmanabad),4248.19,4397.6,2970.66,-3.4%,43.0%
+Dhule,4139.95,3190.46,2755.32,29.8%,50.2%
+Hingoli,3333.61,2616.07,1854.42,27.4%,79.8%
+Jalana,3867.55,3585.44,2428.73,7.9%,59.2%
+Jalgaon,2961.38,2827.73,2529.43,4.7%,17.1%
+Kolhapur,4466.45,4450.47,-,0.4%,-
+Latur,3107.32,2916.65,2032.63,6.5%,52.9%
+Mumbai,5135.62,5150.0,5000.0,-0.3%,2.7%
+Nagpur,3364.12,2404.35,3222.08,39.9%,4.4%
+Nanded,2552.87,2629.17,2193.7,-2.9%,16.4%
+Nandurbar,3214.01,1892.84,3913.16,69.8%,-17.9%
+Nashik,2607.28,2571.49,2202.38,1.4%,18.4%
+Parbhani,2575.74,2892.17,2383.96,-10.9%,8.0%
+Pune,5583.39,5710.41,4429.5,-2.2%,26.1%
+Sangli,5377.82,5152.64,3589.32,4.4%,49.8%
+Satara,4196.81,3948.54,3507.78,6.3%,19.6%
+Sholapur,4141.93,3823.24,3391.25,8.3%,22.1%
+Thane,-,3971.79,3611.21,-,-
+Vashim,2056.21,1954.6,1880.31,5.2%,9.3%
+Wardha,2100.0,-,-,-,-
+Yavatmal,2290.0,-,2161.35,-,6.0%
+Average,3476.66,3308.28,2807.63,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

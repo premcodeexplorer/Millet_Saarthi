@@ -1,0 +1,21 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Karnataka - March, 2026",,
+District,"Prices March, 2026 (Rs./Quintal)","Prices February, 2026 (Rs./Quintal)","Prices March, 2025 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,1842.57,1860.1,-,-0.9%,-
+Bangalore,3150.0,-,-,-,-
+Belgaum,1964.09,2900.0,2397.0,-32.3%,-18.1%
+Bellary,2086.18,1969.5,2176.0,5.9%,-4.1%
+Bidar,2400.0,-,-,-,-
+Bijapur,2062.51,1912.72,-,7.8%,-
+Chitradurga,-,1720.0,-,-,-
+Davangere,2432.08,2800.0,-,-13.1%,-
+Kalburgi,2344.69,2250.0,2491.73,4.2%,-5.9%
+Koppal,1985.8,-,2295.74,-,-13.5%
+Raichur,2300.94,2296.9,2541.28,0.2%,-9.5%
+Yadgiri,2238.93,2355.22,-,-4.9%,-
+Average,2255.25,2229.38,2380.35,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

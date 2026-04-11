@@ -1,0 +1,30 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - October, 2021",,
+District,"Prices October, 2021 (Rs./Quintal)","Prices September, 2021 (Rs./Quintal)","Prices October, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1632.22,1656.08,1262.75,-1.4%,29.3%
+Akola,1550.0,1550.0,1700.0,-,-8.8%
+Amarawati,-,-,1850.0,-,-
+Beed,1723.9,1708.76,1325.05,0.9%,30.1%
+Buldhana,1550.64,1520.06,1203.25,2.0%,28.9%
+Chattrapati Sambhajinagar,1674.0,1616.84,1240.67,3.5%,34.9%
+Dharashiv(Usmanabad),1737.5,1500.0,-,15.8%,-
+Dhule,1695.11,1593.44,1332.24,6.4%,27.2%
+Jalana,1702.65,1639.84,1290.18,3.8%,32.0%
+Jalgaon,1784.56,1607.6,1300.22,11.0%,37.2%
+Latur,-,920.0,-,-,-
+Mumbai,2219.97,2212.02,2948.16,0.4%,-24.7%
+Nandurbar,1543.68,1530.44,1248.55,0.9%,23.6%
+Nashik,1602.93,1636.49,1253.01,-2.0%,27.9%
+Parbhani,1706.22,1613.62,1416.75,5.7%,20.4%
+Pune,2390.61,2395.23,1900.01,-0.2%,25.8%
+Raigad,1639.22,1670.27,1348.75,-1.9%,21.5%
+Sangli,2175.0,2175.0,-,-,-
+Satara,1829.04,1730.86,-,5.7%,-
+Sholapur,1622.73,1525.3,1200.04,6.4%,35.2%
+Thane,2400.0,2400.0,-,-,-
+Average,1798.95,1710.09,1488.73,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

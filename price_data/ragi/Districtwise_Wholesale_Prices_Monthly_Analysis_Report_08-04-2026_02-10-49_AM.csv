@@ -1,0 +1,23 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Ragi(Finger Millet) in Karnataka - October, 2025",,
+District,"Prices October, 2025 (Rs./Quintal)","Prices September, 2025 (Rs./Quintal)","Prices October, 2024 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bangalore,-,-,4169.59,-,-
+Bellary,-,-,3100.73,-,-
+Chamrajnagar,-,-,2898.98,-,-
+Chikmagalur,-,3484.21,-,-,-
+Chitradurga,4000.0,-,2850.0,-,40.4%
+Davangere,3609.0,-,3074.05,-,17.4%
+Dharwad,2475.13,2500.0,-,-1.0%,-
+Hassan,-,-,2916.8,-,-
+Haveri,-,-,4120.0,-,-
+Kolar,3512.69,3568.13,3011.96,-1.6%,16.6%
+Mandya,-,3200.0,3331.99,-,-
+Mysore,3251.9,4200.0,3392.35,-22.6%,-4.1%
+Shimoga,4140.51,4682.52,3997.83,-11.6%,3.6%
+Tumkur,3514.76,3698.98,2916.71,-5.0%,20.5%
+Average,3500.57,3619.12,3315.08,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

@@ -1,0 +1,30 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - July, 2023",,
+District,"Prices July, 2023 (Rs./Quintal)","Prices June, 2023 (Rs./Quintal)","Prices July, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,2165.19,2155.92,2100.69,0.4%,3.1%
+Amarawati,2160.39,2150.0,-,0.5%,-
+Beed,2304.35,2318.96,2395.07,-0.6%,-3.8%
+Buldhana,2242.65,1934.68,-,15.9%,-
+Chattrapati Sambhajinagar,2305.62,2152.45,2266.72,7.1%,1.7%
+Dharashiv(Usmanabad),2351.0,2465.5,-,-4.6%,-
+Dhule,2235.15,2102.86,2149.74,6.3%,4.0%
+Jalana,2323.65,2143.3,2250.82,8.4%,3.2%
+Jalgaon,2258.25,2191.64,2198.02,3.0%,2.7%
+Latur,-,2500.0,-,-,-
+Mumbai,3600.0,3718.77,2684.43,-3.2%,34.1%
+Nandurbar,2188.94,2087.94,2169.94,4.8%,0.9%
+Nashik,2436.09,2323.25,2330.16,4.9%,4.5%
+Parbhani,2410.5,2219.48,2225.5,8.6%,8.3%
+Pune,3176.76,3083.35,2996.77,3.0%,6.0%
+Raigad,2250.0,2100.0,-,7.1%,-
+Sangli,2824.26,2714.14,2528.06,4.1%,11.7%
+Satara,2394.44,2300.0,2513.33,4.1%,-4.7%
+Thane,3390.62,3231.71,2513.64,4.9%,34.9%
+Vashim,2287.08,2039.45,-,12.1%,-
+Yavatmal,2212.19,2500.0,1850.0,-11.5%,19.6%
+Average,2475.86,2401.59,2344.86,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

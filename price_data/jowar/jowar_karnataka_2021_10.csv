@@ -1,0 +1,29 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - October, 2021",,
+District,"Prices October, 2021 (Rs./Quintal)","Prices September, 2021 (Rs./Quintal)","Prices October, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,1290.78,1602.11,2923.0,-19.4%,-55.8%
+Bangalore,2213.07,2300.0,2426.66,-3.8%,-8.8%
+Belgaum,1655.59,1914.16,1843.1,-13.5%,-10.2%
+Bellary,1477.15,1526.34,1202.9,-3.2%,22.8%
+Bidar,2615.42,2634.41,3527.66,-0.7%,-25.9%
+Bijapur,2000.0,1969.35,-,1.6%,-
+Chamrajnagar,1038.46,1146.67,1072.24,-9.4%,-3.1%
+Chikmagalur,6590.4,-,-,-,-
+Davangere,1480.29,1604.53,1085.02,-7.7%,36.4%
+Dharwad,1540.19,1278.49,2366.31,20.5%,-34.9%
+Gadag,1319.36,1434.93,1829.23,-8.1%,-27.9%
+Hassan,2600.0,2100.0,-,23.8%,-
+Haveri,1962.14,1864.71,1787.79,5.2%,9.8%
+Kalburgi,2048.08,2031.39,3283.88,0.8%,-37.6%
+Kolar,-,550.0,1878.57,-,-
+Koppal,1280.0,1783.33,994.29,-28.2%,28.7%
+Mysore,2080.77,3111.52,-,-33.1%,-
+Raichur,2052.89,1633.55,2005.6,25.7%,2.4%
+Shimoga,3000.0,3000.0,3275.0,-,-8.4%
+Tumkur,3400.0,-,-,-,-
+Average,2191.82,1860.3,2100.08,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

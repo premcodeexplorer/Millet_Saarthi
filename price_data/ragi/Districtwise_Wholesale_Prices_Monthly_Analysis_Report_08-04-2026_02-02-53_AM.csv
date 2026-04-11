@@ -1,0 +1,23 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Ragi(Finger Millet) in Karnataka - July, 2021",,
+District,"Prices July, 2021 (Rs./Quintal)","Prices June, 2021 (Rs./Quintal)","Prices July, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bangalore,2897.93,2917.83,3042.65,-0.7%,-4.8%
+Bellary,1842.27,1982.94,1873.94,-7.1%,-1.7%
+Chamrajnagar,2350.0,3000.0,-,-21.7%,-
+Chikmagalur,1995.63,2208.0,1995.22,-9.6%,-
+Chitradurga,2121.06,2329.16,2334.51,-8.9%,-9.1%
+Davangere,2213.67,2122.76,1795.91,4.3%,23.3%
+Gadag,-,1089.0,-,-,-
+Hassan,2029.57,1974.08,2110.67,2.8%,-3.8%
+Haveri,1700.0,-,2325.45,-,-26.9%
+Kolar,1937.84,3165.91,2329.38,-38.8%,-16.8%
+Mandya,2546.38,2537.26,2246.99,0.4%,13.3%
+Mysore,3155.48,-,2310.61,-,36.6%
+Shimoga,2907.14,2994.0,3040.83,-2.9%,-4.4%
+Tumkur,2248.04,2100.46,2032.8,7.0%,10.6%
+Average,2303.46,2368.45,2286.58,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

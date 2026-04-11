@@ -1,0 +1,18 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Karnataka - July, 2023",,
+District,"Prices July, 2023 (Rs./Quintal)","Prices June, 2023 (Rs./Quintal)","Prices July, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,2246.32,-,2270.0,-,-1.0%
+Bangalore,2900.0,2767.02,2620.08,4.8%,10.7%
+Belgaum,2084.83,2000.0,2177.78,4.2%,-4.3%
+Bellary,2523.53,2291.32,2484.18,10.1%,1.6%
+Bijapur,2425.0,2250.0,1796.67,7.8%,35.0%
+Kalburgi,2222.5,2651.85,2042.86,-16.2%,8.8%
+Kolar,-,2350.0,2650.0,-,-
+Koppal,2161.25,2234.45,2227.5,-3.3%,-3.0%
+Raichur,2547.16,2294.5,2478.9,11.0%,2.8%
+Average,2388.82,2354.89,2305.33,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

@@ -1,0 +1,26 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - April, 2023",,
+District,"Prices April, 2023 (Rs./Quintal)","Prices March, 2023 (Rs./Quintal)","Prices April, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,-,2800.0,-,-,-
+Bangalore,3243.78,3208.76,3297.89,1.1%,-1.6%
+Belgaum,3835.09,2423.38,2212.19,58.2%,73.4%
+Bellary,2470.11,2522.18,2081.77,-2.1%,18.6%
+Bidar,4012.71,3788.61,2785.51,5.9%,44.1%
+Bijapur,3725.0,3128.0,2900.0,19.1%,28.4%
+Chikmagalur,2500.0,-,-,-,-
+Davangere,2438.45,3000.0,1997.07,-18.7%,22.1%
+Dharwad,2964.37,2984.25,1956.22,-0.7%,51.5%
+Gadag,3284.62,3036.24,1961.02,8.2%,67.5%
+Hassan,-,-,4100.0,-,-
+Haveri,2424.99,2427.21,2199.72,-0.1%,10.2%
+Kalburgi,4114.56,4060.48,2729.1,1.3%,50.8%
+Koppal,2900.0,3500.0,2300.0,-17.1%,26.1%
+Mysore,4052.42,2264.71,2752.63,78.9%,47.2%
+Raichur,2828.31,3263.09,2233.82,-13.3%,26.6%
+Shimoga,3796.88,3818.18,3000.0,-0.6%,26.6%
+Average,3239.42,3081.67,2567.13,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

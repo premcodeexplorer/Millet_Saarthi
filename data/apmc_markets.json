@@ -1,0 +1,48 @@
+{
+  "markets": [
+    {"name": "Pune APMC", "district": "Pune", "state": "Maharashtra", "lat": 18.5204, "lon": 73.8567, "commission_pct": 1.5},
+    {"name": "Ahmednagar APMC", "district": "Ahmednagar", "state": "Maharashtra", "lat": 19.0948, "lon": 74.7480, "commission_pct": 1.5},
+    {"name": "Nashik APMC", "district": "Nashik", "state": "Maharashtra", "lat": 19.9975, "lon": 73.7898, "commission_pct": 1.5},
+    {"name": "Satara APMC", "district": "Satara", "state": "Maharashtra", "lat": 17.6805, "lon": 74.0183, "commission_pct": 1.5},
+    {"name": "Sangli APMC", "district": "Sangli", "state": "Maharashtra", "lat": 16.8524, "lon": 74.5815, "commission_pct": 1.5},
+    {"name": "Sholapur APMC", "district": "Sholapur", "state": "Maharashtra", "lat": 17.6599, "lon": 75.9064, "commission_pct": 1.5},
+    {"name": "Latur APMC", "district": "Latur", "state": "Maharashtra", "lat": 18.4088, "lon": 76.5604, "commission_pct": 1.5},
+    {"name": "Beed APMC", "district": "Beed", "state": "Maharashtra", "lat": 18.9894, "lon": 75.7585, "commission_pct": 1.5},
+    {"name": "Jalana APMC", "district": "Jalana", "state": "Maharashtra", "lat": 19.8347, "lon": 75.8816, "commission_pct": 1.5},
+    {"name": "Chattrapati Sambhajinagar APMC", "district": "Chattrapati Sambhajinagar", "state": "Maharashtra", "lat": 19.8762, "lon": 75.3433, "commission_pct": 1.5},
+    {"name": "Nagpur APMC", "district": "Nagpur", "state": "Maharashtra", "lat": 21.1458, "lon": 79.0882, "commission_pct": 1.5},
+    {"name": "Akola APMC", "district": "Akola", "state": "Maharashtra", "lat": 20.7002, "lon": 77.0082, "commission_pct": 1.5},
+    {"name": "Amarawati APMC", "district": "Amarawati", "state": "Maharashtra", "lat": 20.9320, "lon": 77.7523, "commission_pct": 1.5},
+    {"name": "Jalgaon APMC", "district": "Jalgaon", "state": "Maharashtra", "lat": 21.0077, "lon": 75.5626, "commission_pct": 1.5},
+    {"name": "Dhule APMC", "district": "Dhule", "state": "Maharashtra", "lat": 20.9042, "lon": 74.7749, "commission_pct": 1.5},
+    {"name": "Parbhani APMC", "district": "Parbhani", "state": "Maharashtra", "lat": 19.2704, "lon": 76.7600, "commission_pct": 1.5},
+    {"name": "Bangalore APMC", "district": "Bangalore", "state": "Karnataka", "lat": 12.9716, "lon": 77.5946, "commission_pct": 2.0},
+    {"name": "Mysore APMC", "district": "Mysore", "state": "Karnataka", "lat": 12.2958, "lon": 76.6394, "commission_pct": 2.0},
+    {"name": "Belgaum APMC", "district": "Belgaum", "state": "Karnataka", "lat": 15.8497, "lon": 74.4977, "commission_pct": 2.0},
+    {"name": "Hubli APMC (Dharwad)", "district": "Dharwad", "state": "Karnataka", "lat": 15.4589, "lon": 75.0078, "commission_pct": 2.0},
+    {"name": "Bijapur APMC", "district": "Bijapur", "state": "Karnataka", "lat": 16.8302, "lon": 75.7100, "commission_pct": 2.0},
+    {"name": "Kalburgi APMC", "district": "Kalburgi", "state": "Karnataka", "lat": 17.3297, "lon": 76.8343, "commission_pct": 2.0},
+    {"name": "Bidar APMC", "district": "Bidar", "state": "Karnataka", "lat": 17.9104, "lon": 77.5199, "commission_pct": 2.0},
+    {"name": "Raichur APMC", "district": "Raichur", "state": "Karnataka", "lat": 16.2076, "lon": 77.3463, "commission_pct": 2.0},
+    {"name": "Bellary APMC", "district": "Bellary", "state": "Karnataka", "lat": 15.1394, "lon": 76.9214, "commission_pct": 2.0},
+    {"name": "Davangere APMC", "district": "Davangere", "state": "Karnataka", "lat": 14.4644, "lon": 75.9218, "commission_pct": 2.0},
+    {"name": "Shimoga APMC", "district": "Shimoga", "state": "Karnataka", "lat": 13.9299, "lon": 75.5681, "commission_pct": 2.0},
+    {"name": "Gadag APMC", "district": "Gadag", "state": "Karnataka", "lat": 15.4302, "lon": 75.6355, "commission_pct": 2.0},
+    {"name": "Haveri APMC", "district": "Haveri", "state": "Karnataka", "lat": 14.7951, "lon": 75.4040, "commission_pct": 2.0},
+    {"name": "Bagalkot APMC", "district": "Bagalkot", "state": "Karnataka", "lat": 16.1862, "lon": 75.6961, "commission_pct": 2.0}
+  ],
+  "truck_rental_per_km": 30,
+  "truck_capacity_quintals": 100,
+  "msp_per_quintal": {
+    "jowar": 3180,
+    "bajra": 2625,
+    "ragi": 4290
+  },
+  "notes": {
+    "truck_rental_per_km": "Average mini-truck rental rate ₹30/km (varies ₹25-40 across states)",
+    "truck_capacity_quintals": "Standard mini-truck capacity for bulk grain transport",
+    "cost_formula": "per_quintal_cost = (distance × 30) / min(quantity, 100)  -- bulk-aware",
+    "msp": "Govt of India MSP 2024-25 — farmer should never sell below this",
+    "commission_pct": "APMC commission/market fee (MH ~1.5%, KA ~2%)"
+  }
+}

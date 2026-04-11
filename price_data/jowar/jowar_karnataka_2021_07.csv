@@ -1,0 +1,25 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - July, 2021",,
+District,"Prices July, 2021 (Rs./Quintal)","Prices June, 2021 (Rs./Quintal)","Prices July, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,1080.0,1800.0,-,-40.0%,-
+Bangalore,2519.44,2650.0,2731.29,-4.9%,-7.8%
+Belgaum,2400.86,2499.6,3684.91,-4.0%,-34.9%
+Bellary,1547.95,1539.33,1617.4,0.6%,-4.3%
+Bidar,2880.67,3084.26,3439.36,-6.6%,-16.2%
+Bijapur,2255.43,2362.74,3063.04,-4.5%,-26.4%
+Davangere,1511.4,1402.32,2033.42,7.8%,-25.7%
+Dharwad,1592.17,1928.39,2822.99,-17.4%,-43.6%
+Gadag,1583.96,1813.98,2218.25,-12.7%,-28.6%
+Haveri,2086.58,2116.67,2141.67,-1.4%,-2.6%
+Kalburgi,2384.11,3087.0,2666.67,-22.8%,-10.6%
+Kolar,-,-,1871.43,-,-
+Koppal,2100.0,1534.55,1413.2,36.9%,48.6%
+Mysore,3710.04,-,-,-,-
+Raichur,1812.96,1848.14,1890.3,-1.9%,-4.1%
+Shimoga,3075.0,3340.0,3741.67,-7.9%,-17.8%
+Average,2169.37,2214.78,2523.97,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

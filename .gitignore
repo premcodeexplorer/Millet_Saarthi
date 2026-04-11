@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+*.tmp
+temp/
+*.zip
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.streamlit/secrets.toml

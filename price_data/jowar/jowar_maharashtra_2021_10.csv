@@ -1,0 +1,36 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Maharashtra - October, 2021",,
+District,"Prices October, 2021 (Rs./Quintal)","Prices September, 2021 (Rs./Quintal)","Prices October, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1764.34,1877.46,2418.71,-6.0%,-27.1%
+Akola,1165.43,1165.36,1028.38,-,13.3%
+Amarawati,1310.29,1450.0,1186.14,-9.6%,10.5%
+Beed,1354.57,1385.13,1733.61,-2.2%,-21.9%
+Buldhana,1258.47,1340.39,1136.0,-6.1%,10.8%
+Chattrapati Sambhajinagar,1583.64,1529.47,2571.51,3.5%,-38.4%
+Dharashiv(Usmanabad),1476.92,1331.03,1689.41,11.0%,-12.6%
+Dhule,1641.02,1586.54,1035.7,3.4%,58.5%
+Hingoli,1423.75,1301.45,1762.3,9.4%,-19.2%
+Jalana,1558.69,1562.43,1995.38,-0.2%,-21.9%
+Jalgaon,1490.11,1577.58,1283.61,-5.5%,16.1%
+Latur,1357.61,1361.59,1528.5,-0.3%,-11.2%
+Mumbai,3000.0,3076.19,3419.86,-2.5%,-12.3%
+Nagpur,1158.33,2150.0,2350.0,-46.1%,-50.7%
+Nanded,1256.86,1305.88,1199.88,-3.8%,4.8%
+Nandurbar,1486.85,1508.53,1341.5,-1.4%,10.8%
+Nashik,1441.46,1526.41,1479.18,-5.6%,-2.5%
+Parbhani,1420.14,1442.51,1918.76,-1.6%,-26.0%
+Pune,3966.54,4049.18,4583.61,-2.0%,-13.5%
+Raigad,1576.34,1921.93,2145.45,-18.0%,-26.5%
+Sangli,3002.52,3250.0,3043.7,-7.6%,-1.4%
+Satara,1866.02,1835.09,3000.0,1.7%,-37.8%
+Sholapur,2428.98,2033.36,3439.87,19.5%,-29.4%
+Thane,3000.0,2900.0,2900.0,3.5%,3.5%
+Vashim,1360.36,1372.37,1195.45,-0.9%,13.8%
+Wardha,1055.83,1274.2,1100.0,-17.1%,-4.0%
+Yavatmal,1806.84,1533.96,1414.1,17.8%,27.8%
+Average,1748.59,1801.78,1996.32,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

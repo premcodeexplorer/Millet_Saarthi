@@ -1,0 +1,23 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Ragi(Finger Millet) in Karnataka - April, 2023",,
+District,"Prices April, 2023 (Rs./Quintal)","Prices March, 2023 (Rs./Quintal)","Prices April, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bangalore,3091.34,3120.41,2900.0,-0.9%,6.6%
+Bellary,2403.62,2421.07,1760.03,-0.7%,36.6%
+Chamrajnagar,3000.0,2000.0,-,50.0%,-
+Chikmagalur,2702.17,2680.37,-,0.8%,-
+Chitradurga,2554.65,-,2044.83,-,24.9%
+Davangere,2368.12,2454.98,1809.69,-3.5%,30.9%
+Dharwad,-,3000.0,-,-,-
+Hassan,2460.53,2460.0,1814.16,-,35.6%
+Haveri,-,1600.0,1950.0,-,-
+Kolar,2246.73,2704.93,2003.15,-16.9%,12.2%
+Mandya,2490.91,2352.62,2606.82,5.9%,-4.5%
+Mysore,2873.23,2526.65,1819.82,13.7%,57.9%
+Shimoga,3217.86,2409.89,2856.77,33.5%,12.6%
+Tumkur,2616.91,2198.13,2135.33,19.1%,22.6%
+Average,2668.84,2456.08,2154.6,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

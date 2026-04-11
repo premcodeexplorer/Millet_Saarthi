@@ -1,0 +1,29 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - January, 2022",,
+District,"Prices January, 2022 (Rs./Quintal)","Prices December, 2021 (Rs./Quintal)","Prices January, 2021 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1909.02,1827.22,1355.27,4.5%,40.9%
+Akola,-,1925.0,1500.0,-,-
+Amarawati,-,-,1850.0,-,-
+Beed,2060.79,2020.64,1295.53,2.0%,59.1%
+Buldhana,1950.0,1784.44,1190.94,9.3%,63.7%
+Chattrapati Sambhajinagar,2015.06,1973.38,1221.52,2.1%,65.0%
+Dharashiv(Usmanabad),1525.5,-,1040.33,-,46.6%
+Dhule,1873.55,1823.2,1286.92,2.8%,45.6%
+Jalana,2000.91,1914.57,1293.34,4.5%,54.7%
+Jalgaon,1958.34,1996.96,1318.54,-1.9%,48.5%
+Mumbai,2400.0,2500.0,2627.37,-4.0%,-8.7%
+Nandurbar,1962.35,1952.99,1288.56,0.5%,52.3%
+Nashik,1932.13,1900.07,1279.03,1.7%,51.1%
+Parbhani,2064.2,2157.0,1459.0,-4.3%,41.5%
+Pune,2885.59,2802.82,1824.1,3.0%,58.2%
+Raigad,1700.0,1596.88,1571.79,6.5%,8.2%
+Sangli,2355.88,2463.9,2226.43,-4.4%,5.8%
+Satara,2199.13,-,1500.0,-,46.6%
+Sholapur,2050.0,1993.0,1200.47,2.9%,70.8%
+Thane,2546.51,2513.68,-,1.3%,-
+Average,2077.16,2067.4,1491.01,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

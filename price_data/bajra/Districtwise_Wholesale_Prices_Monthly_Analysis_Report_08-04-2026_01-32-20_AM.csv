@@ -1,0 +1,25 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - April, 2021",,
+District,"Prices April, 2021 (Rs./Quintal)","Prices March, 2021 (Rs./Quintal)","Prices April, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1383.33,1516.44,1397.56,-8.8%,-1.0%
+Beed,1387.98,1366.53,1778.42,1.6%,-21.9%
+Buldhana,1173.12,1125.5,-,4.2%,-
+Chattrapati Sambhajinagar,1313.38,1237.66,1673.27,6.1%,-21.5%
+Dharashiv(Usmanabad),900.0,-,-,-,-
+Dhule,1330.97,1250.7,1858.67,6.4%,-28.4%
+Jalana,1344.25,1270.2,1583.33,5.8%,-15.1%
+Jalgaon,1360.17,1247.29,2054.16,9.1%,-33.8%
+Mumbai,2221.74,2338.58,2960.0,-5.0%,-24.9%
+Nandurbar,1372.04,1256.68,1730.25,9.2%,-20.7%
+Nashik,1317.0,1290.41,1752.63,2.1%,-24.9%
+Parbhani,1400.0,3966.0,-,-64.7%,-
+Pune,2473.55,2219.59,1886.0,11.4%,31.1%
+Raigad,1576.19,1605.71,-,-1.8%,-
+Sangli,-,2175.0,-,-,-
+Sholapur,1151.0,1206.25,-,-4.6%,-
+Average,1446.98,1671.5,1867.43,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

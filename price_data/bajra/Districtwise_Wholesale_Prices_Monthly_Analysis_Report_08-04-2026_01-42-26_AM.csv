@@ -1,0 +1,31 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - February, 2026",,
+District,"Prices February, 2026 (Rs./Quintal)","Prices January, 2026 (Rs./Quintal)","Prices February, 2025 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,2233.13,2315.51,2499.27,-3.6%,-10.7%
+Akola,-,-,3186.96,-,-
+Amarawati,2515.62,2431.25,2765.77,3.5%,-9.0%
+Beed,2792.06,2812.02,2723.02,-0.7%,2.5%
+Buldhana,2391.62,2557.3,2507.88,-6.5%,-4.6%
+Chattrapati Sambhajinagar,2574.29,2871.3,2826.77,-10.3%,-8.9%
+Dharashiv(Usmanabad),2760.67,2566.67,2000.5,7.6%,38.0%
+Dhule,2140.89,2349.54,2436.28,-8.9%,-12.1%
+Jalana,2792.12,2709.87,2497.68,3.0%,11.8%
+Jalgaon,2508.8,2546.26,2661.02,-1.5%,-5.7%
+Kolhapur,-,3000.0,-,-,-
+Mumbai,4000.0,4025.11,3900.0,-0.6%,2.6%
+Nandurbar,2037.65,2269.6,2710.24,-10.2%,-24.8%
+Nashik,2299.22,2379.6,2597.99,-3.4%,-11.5%
+Parbhani,2533.19,-,2642.33,-,-4.1%
+Pune,3793.09,3760.59,3446.22,0.9%,10.1%
+Sangli,3138.48,3127.28,3021.99,0.4%,3.9%
+Satara,-,2651.04,-,-,-
+Sholapur,1835.38,2070.68,2509.09,-11.4%,-26.9%
+Thane,2972.64,3069.71,2944.41,-3.2%,1.0%
+Vashim,-,-,2000.0,-,-
+Yavatmal,-,2735.6,2559.38,-,-
+Average,2665.81,2749.94,2721.84,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

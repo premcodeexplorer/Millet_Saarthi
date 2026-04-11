@@ -1,0 +1,29 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - July, 2021",,
+District,"Prices July, 2021 (Rs./Quintal)","Prices June, 2021 (Rs./Quintal)","Prices July, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1661.01,1480.22,1431.96,12.2%,16.0%
+Akola,-,1300.0,-,-,-
+Amarawati,1433.33,-,-,-,-
+Beed,1504.41,1352.33,1456.34,11.2%,3.3%
+Buldhana,1292.07,1216.44,1400.14,6.2%,-7.7%
+Chattrapati Sambhajinagar,1496.1,1327.62,1325.59,12.7%,12.9%
+Dharashiv(Usmanabad),-,850.0,-,-,-
+Dhule,1484.42,1382.35,1278.58,7.4%,16.1%
+Jalana,1485.41,1374.01,1270.86,8.1%,16.9%
+Jalgaon,1487.74,1360.45,1361.26,9.4%,9.3%
+Mumbai,2220.31,2341.43,2758.94,-5.2%,-19.5%
+Nandurbar,1422.73,1335.06,1386.07,6.6%,2.6%
+Nashik,1521.8,1398.94,1315.34,8.8%,15.7%
+Parbhani,1426.25,1265.22,1581.0,12.7%,-9.8%
+Pune,2417.58,2374.08,1707.47,1.8%,41.6%
+Raigad,1513.1,1515.79,1476.67,-0.2%,2.5%
+Sangli,2175.0,-,2075.0,-,4.8%
+Satara,-,-,1563.16,-,-
+Sholapur,1370.5,4268.88,-,-67.9%,-
+Thane,2575.0,2726.79,-,-5.6%,-
+Average,1675.69,1698.21,1559.23,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

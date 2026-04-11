@@ -1,0 +1,23 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Ragi(Finger Millet) in Karnataka - January, 2022",,
+District,"Prices January, 2022 (Rs./Quintal)","Prices December, 2021 (Rs./Quintal)","Prices January, 2021 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bangalore,2902.45,2736.2,3150.0,6.1%,-7.9%
+Bellary,1978.71,1924.61,2170.17,2.8%,-8.8%
+Chamrajnagar,-,3150.0,-,-,-
+Chikmagalur,1902.65,2991.44,2000.0,-36.4%,-4.9%
+Chitradurga,2306.33,2189.93,2166.82,5.3%,6.4%
+Davangere,2181.79,1932.42,2308.71,12.9%,-5.5%
+Dharwad,2800.0,-,-,-,-
+Hassan,2041.46,2034.44,2262.08,0.3%,-9.8%
+Haveri,-,1800.0,1433.33,-,-
+Kolar,2127.78,2117.2,2040.52,0.5%,4.3%
+Mandya,2651.46,2980.51,2394.85,-11.0%,10.7%
+Mysore,2137.84,2201.15,2168.93,-2.9%,-1.4%
+Shimoga,2812.5,2879.41,4289.33,-2.3%,-34.4%
+Tumkur,2050.88,1922.69,2127.56,6.7%,-3.6%
+Average,2324.49,2373.85,2376.03,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

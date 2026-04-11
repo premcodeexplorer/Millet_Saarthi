@@ -1,0 +1,10 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Ragi(Finger Millet) in Maharashtra - January, 2025",,
+District,"Prices January, 2025 (Rs./Quintal)","Prices December, 2024 (Rs./Quintal)","Prices January, 2024 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Pune,4922.58,4811.63,4350.0,2.3%,13.2%
+Average,4922.58,4811.63,4350.0,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

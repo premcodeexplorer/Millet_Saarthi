@@ -1,0 +1,30 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - July, 2022",,
+District,"Prices July, 2022 (Rs./Quintal)","Prices June, 2022 (Rs./Quintal)","Prices July, 2021 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,2100.69,2048.0,1661.01,2.6%,26.5%
+Amarawati,-,1900.0,1433.33,-,-
+Beed,2395.07,2187.1,1504.41,9.5%,59.2%
+Buldhana,-,1834.39,1292.07,-,-
+Chattrapati Sambhajinagar,2266.72,2053.57,1496.1,10.4%,51.5%
+Dharashiv(Usmanabad),-,2000.0,-,-,-
+Dhule,2149.74,2058.98,1484.42,4.4%,44.8%
+Jalana,2250.82,2121.32,1485.41,6.1%,51.5%
+Jalgaon,2198.02,2094.29,1487.74,5.0%,47.7%
+Mumbai,2684.43,2500.0,2220.31,7.4%,20.9%
+Nandurbar,2169.94,2037.64,1422.73,6.5%,52.5%
+Nashik,2330.16,2163.79,1521.8,7.7%,53.1%
+Parbhani,2225.5,1934.0,1426.25,15.1%,56.0%
+Pune,2996.77,2959.51,2417.58,1.3%,24.0%
+Raigad,-,-,1513.1,-,-
+Sangli,2528.06,2397.1,2175.0,5.5%,16.2%
+Satara,2513.33,2400.0,-,4.7%,-
+Sholapur,-,-,1370.5,-,-
+Thane,2513.64,-,2575.0,-,-2.4%
+Vashim,-,1825.0,-,-,-
+Yavatmal,1850.0,1760.0,-,5.1%,-
+Average,2344.86,2126.37,1675.69,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

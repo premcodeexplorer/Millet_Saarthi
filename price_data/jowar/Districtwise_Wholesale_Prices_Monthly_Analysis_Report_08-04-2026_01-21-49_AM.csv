@@ -1,0 +1,24 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - April, 2025",,
+District,"Prices April, 2025 (Rs./Quintal)","Prices March, 2025 (Rs./Quintal)","Prices April, 2024 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,-,1800.0,-,-,-
+Bangalore,-,-,3300.0,-,-
+Belgaum,2398.0,4500.0,4890.91,-46.7%,-51.0%
+Bellary,2115.83,2157.46,2486.53,-1.9%,-14.9%
+Bidar,-,2000.0,4076.92,-,-
+Chamrajnagar,-,-,1600.0,-,-
+Davangere,2378.24,2321.69,-,2.4%,-
+Dharwad,2027.37,1862.35,2765.93,8.9%,-26.7%
+Gadag,-,2435.0,2920.89,-,-
+Haveri,-,-,2318.06,-,-
+Kalburgi,3850.0,2896.36,4048.11,32.9%,-4.9%
+Koppal,-,1939.0,-,-,-
+Mysore,-,-,4150.0,-,-
+Raichur,2547.6,2628.81,2511.12,-3.1%,1.4%
+Shimoga,3400.0,3242.59,4371.43,4.8%,-22.2%
+Average,2673.86,2525.75,3286.66,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

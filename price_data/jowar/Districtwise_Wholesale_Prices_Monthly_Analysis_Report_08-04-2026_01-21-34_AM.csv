@@ -1,0 +1,28 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - January, 2025",,
+District,"Prices January, 2025 (Rs./Quintal)","Prices December, 2024 (Rs./Quintal)","Prices January, 2024 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,-,1805.0,-,-,-
+Bangalore,3056.41,3100.0,3964.52,-1.4%,-22.9%
+Belgaum,4273.33,4347.27,-,-1.7%,-
+Bellary,2307.16,2186.97,2555.43,5.5%,-9.7%
+Bidar,3094.06,3149.72,4775.01,-1.8%,-35.2%
+Bijapur,2333.33,2700.0,5075.0,-13.6%,-54.0%
+Chamrajnagar,2035.29,2110.62,-,-3.6%,-
+Chikmagalur,-,3144.0,-,-,-
+Davangere,2178.92,2212.41,-,-1.5%,-
+Dharwad,2043.21,2018.19,3280.04,1.2%,-37.7%
+Gadag,2207.17,2118.09,3184.64,4.2%,-30.7%
+Hassan,-,3600.0,-,-,-
+Haveri,-,2500.0,2282.5,-,-
+Kalburgi,2789.18,2724.37,5001.88,2.4%,-44.2%
+Kolar,-,4386.0,-,-,-
+Koppal,2042.78,2132.45,2115.0,-4.2%,-3.4%
+Mysore,3050.0,3633.33,4737.5,-16.1%,-35.6%
+Raichur,2400.08,2389.44,3000.0,0.5%,-20.0%
+Shimoga,3375.0,3536.25,4852.78,-4.6%,-30.4%
+Average,2656.14,2831.27,3735.36,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

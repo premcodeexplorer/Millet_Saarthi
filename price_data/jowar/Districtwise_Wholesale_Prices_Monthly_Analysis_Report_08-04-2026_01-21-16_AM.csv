@@ -1,0 +1,35 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Maharashtra - October, 2025",,
+District,"Prices October, 2025 (Rs./Quintal)","Prices September, 2025 (Rs./Quintal)","Prices October, 2024 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,3599.67,3274.48,3115.78,9.9%,15.5%
+Akola,1907.77,2087.5,2182.67,-8.6%,-12.6%
+Amarawati,1777.33,1810.48,2124.66,-1.8%,-16.4%
+Beed,2488.03,2358.94,2252.06,5.5%,10.5%
+Buldhana,1972.72,1968.28,2126.47,0.2%,-7.2%
+Chattrapati Sambhajinagar,2530.83,2372.01,2321.3,6.7%,9.0%
+Dharashiv(Usmanabad),3631.29,2908.66,2396.42,24.8%,51.5%
+Dhule,2337.99,2284.73,2215.86,2.3%,5.5%
+Hingoli,2308.33,1966.39,1813.42,17.4%,27.3%
+Jalana,2579.82,2524.81,2376.38,2.2%,8.6%
+Jalgaon,2271.68,2408.55,2240.01,-5.7%,1.4%
+Latur,2116.06,2171.91,2074.15,-2.6%,2.0%
+Mumbai,4700.0,4700.0,4700.0,-,-
+Nagpur,2135.0,2684.62,2578.57,-20.5%,-17.2%
+Nanded,2443.05,2191.1,2135.06,11.5%,14.4%
+Nandurbar,2238.31,2180.11,2031.1,2.7%,10.2%
+Nashik,1984.78,2216.04,2262.58,-10.4%,-12.3%
+Parbhani,2437.51,2700.07,2213.15,-9.7%,10.1%
+Pune,4909.18,4823.99,4817.25,1.8%,1.9%
+Sangli,4250.62,4057.85,3234.75,4.8%,31.4%
+Satara,3250.0,2725.0,2712.9,19.3%,19.8%
+Sholapur,3470.57,3320.88,3364.73,4.5%,3.1%
+Thane,3960.81,3991.76,3754.88,-0.8%,5.5%
+Vashim,1775.8,1914.88,2099.97,-7.3%,-15.4%
+Wardha,-,1846.25,1988.63,-,-
+Yavatmal,2175.66,2161.11,2147.41,0.7%,1.3%
+Average,2770.11,2678.86,2587.7,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

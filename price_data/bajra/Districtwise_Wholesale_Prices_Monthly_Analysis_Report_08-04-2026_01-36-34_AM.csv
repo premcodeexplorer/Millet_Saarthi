@@ -1,0 +1,26 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - April, 2023",,
+District,"Prices April, 2023 (Rs./Quintal)","Prices March, 2023 (Rs./Quintal)","Prices April, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,2309.08,2129.36,1968.51,8.4%,17.3%
+Beed,2639.32,2576.47,2361.28,2.4%,11.8%
+Buldhana,2590.0,2250.0,-,15.1%,-
+Chattrapati Sambhajinagar,2577.8,2765.65,2281.55,-6.8%,13.0%
+Dhule,2473.58,2360.8,2195.23,4.8%,12.7%
+Jalana,2674.1,2508.69,2350.47,6.6%,13.8%
+Jalgaon,2566.72,2566.72,2311.23,-,11.1%
+Mumbai,3600.0,3524.44,2696.38,2.1%,33.5%
+Nandurbar,2347.52,2579.55,2152.95,-9.0%,9.0%
+Nashik,2492.67,2401.76,2257.46,3.8%,10.4%
+Parbhani,2759.62,2962.5,2390.0,-6.8%,15.5%
+Pune,3013.37,3126.73,3067.47,-3.6%,-1.8%
+Raigad,2340.0,2294.12,2166.67,2.0%,8.0%
+Sangli,2779.95,2765.91,2492.44,0.5%,11.5%
+Satara,2500.0,2563.89,2503.12,-2.5%,-0.1%
+Sholapur,3000.0,2600.0,-,15.4%,-
+Thane,3500.0,-,-,-,-
+Average,2715.51,2623.54,2371.05,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

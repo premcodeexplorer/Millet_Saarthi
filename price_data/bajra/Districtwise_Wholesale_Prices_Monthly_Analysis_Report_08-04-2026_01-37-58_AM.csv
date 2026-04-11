@@ -1,0 +1,28 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - January, 2024",,
+District,"Prices January, 2024 (Rs./Quintal)","Prices December, 2023 (Rs./Quintal)","Prices January, 2023 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,2460.28,2500.87,2328.46,-1.6%,5.7%
+Akola,2750.0,2733.33,-,0.6%,-
+Beed,2599.52,2699.27,2510.75,-3.7%,3.5%
+Buldhana,2369.4,2569.0,-,-7.8%,-
+Chattrapati Sambhajinagar,2452.19,2531.11,2445.48,-3.1%,0.3%
+Dharashiv(Usmanabad),2967.33,3345.0,-,-11.3%,-
+Dhule,2330.59,2286.21,2222.86,1.9%,4.8%
+Jalana,2438.48,2516.29,2792.57,-3.1%,-12.7%
+Jalgaon,2443.4,2484.23,2610.82,-1.6%,-6.4%
+Mumbai,3300.0,3800.0,3300.54,-13.2%,-0.0%
+Nandurbar,2456.27,2561.17,2591.08,-4.1%,-5.2%
+Nashik,2589.84,2538.86,2464.91,2.0%,5.1%
+Parbhani,2574.5,2654.33,2670.0,-3.0%,-3.6%
+Pune,3513.24,3506.07,3229.01,0.2%,8.8%
+Raigad,2414.29,2352.94,2406.25,2.6%,0.3%
+Sangli,2758.02,2798.79,2813.12,-1.5%,-2.0%
+Satara,-,2622.73,2800.0,-,-
+Sholapur,2561.88,2917.85,2100.0,-12.2%,22.0%
+Thane,3677.27,3515.22,2982.46,4.6%,23.3%
+Average,2703.14,2785.96,2641.77,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

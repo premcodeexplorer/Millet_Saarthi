@@ -1,0 +1,28 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - October, 2024",,
+District,"Prices October, 2024 (Rs./Quintal)","Prices September, 2024 (Rs./Quintal)","Prices October, 2023 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,2003.5,2360.0,-,-15.1%,-
+Bangalore,3058.11,3234.01,3500.0,-5.4%,-12.6%
+Belgaum,3702.45,2320.94,4351.58,59.5%,-14.9%
+Bellary,2179.49,2169.47,2776.64,0.5%,-21.5%
+Bidar,3061.66,2583.85,4488.4,18.5%,-31.8%
+Bijapur,-,-,5054.35,-,-
+Chamrajnagar,1976.4,2147.98,-,-8.0%,-
+Chikmagalur,-,-,3133.5,-,-
+Davangere,2191.46,2251.32,2730.71,-2.7%,-19.8%
+Dharwad,2007.67,2687.4,3987.35,-25.3%,-49.6%
+Gadag,2046.98,2204.18,4411.0,-7.1%,-53.6%
+Haveri,2372.73,-,3514.29,-,-32.5%
+Kalburgi,2843.17,2883.45,4922.07,-1.4%,-42.2%
+Kolar,-,2000.0,-,-,-
+Koppal,1806.0,2070.39,2141.0,-12.8%,-15.7%
+Mysore,3928.89,3798.45,3225.0,3.4%,21.8%
+Raichur,2302.02,2432.99,1900.0,-5.4%,21.2%
+Shimoga,3662.5,3900.0,4640.0,-6.1%,-21.1%
+Tumkur,-,2660.0,-,-,-
+Average,2609.54,2606.53,3651.73,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

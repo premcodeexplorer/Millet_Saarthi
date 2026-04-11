@@ -1,0 +1,31 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Bajra(Pearl Millet/Cumbu) in Maharashtra - January, 2021",,
+District,"Prices January, 2021 (Rs./Quintal)","Prices December, 2020 (Rs./Quintal)","Prices January, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,1355.27,1413.28,1881.08,-4.1%,-27.9%
+Akola,1500.0,1200.0,1925.0,25.0%,-22.1%
+Amarawati,1850.0,1900.0,-,-2.6%,-
+Beed,1295.53,1393.14,1864.17,-7.0%,-30.5%
+Buldhana,1190.94,1337.69,1613.92,-11.0%,-26.2%
+Chattrapati Sambhajinagar,1221.52,1314.7,1753.53,-7.1%,-30.3%
+Dharashiv(Usmanabad),1040.33,1004.14,1706.52,3.6%,-39.0%
+Dhule,1286.92,1351.66,1688.32,-4.8%,-23.8%
+Jalana,1293.34,1334.0,1729.86,-3.0%,-25.2%
+Jalgaon,1318.54,1308.27,1879.57,0.8%,-29.9%
+Latur,-,1375.5,1350.0,-,-
+Mumbai,2627.37,2527.95,3163.17,3.9%,-16.9%
+Nandurbar,1288.56,1331.77,2106.82,-3.2%,-38.8%
+Nashik,1279.03,1300.29,2046.89,-1.6%,-37.5%
+Parbhani,1459.0,1266.67,1700.0,15.2%,-14.2%
+Pune,1824.1,1913.53,2008.07,-4.7%,-9.2%
+Raigad,1571.79,1400.7,1900.48,12.2%,-17.3%
+Sangli,2226.43,2171.59,2249.27,2.5%,-1.0%
+Satara,1500.0,-,2180.4,-,-31.2%
+Sholapur,1200.47,1260.51,1719.08,-4.8%,-30.2%
+Thane,-,-,2717.84,-,-
+Yavatmal,-,-,2755.0,-,-
+Average,1491.01,1479.23,1997.09,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

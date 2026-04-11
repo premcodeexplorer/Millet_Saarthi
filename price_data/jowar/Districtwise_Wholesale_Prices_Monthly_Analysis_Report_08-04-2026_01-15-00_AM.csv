@@ -1,0 +1,38 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Maharashtra - April, 2024",,
+District,"Prices April, 2024 (Rs./Quintal)","Prices March, 2024 (Rs./Quintal)","Prices April, 2023 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,3524.42,3279.23,3700.26,7.5%,-4.8%
+Akola,2210.33,2256.36,-,-2.0%,-
+Amarawati,2491.85,2584.87,-,-3.6%,-
+Beed,2712.61,2572.09,3030.57,5.5%,-10.5%
+Buldhana,2070.71,2184.54,2547.6,-5.2%,-18.7%
+Chandrapur,-,3400.0,-,-,-
+Chattrapati Sambhajinagar,2626.79,2625.44,2750.5,0.1%,-4.5%
+Dharashiv(Usmanabad),3366.09,3310.56,3553.38,1.7%,-5.3%
+Dhule,2776.69,2993.62,3242.86,-7.2%,-14.4%
+Gadchiroli,2500.0,2500.0,2871.43,-,-12.9%
+Hingoli,1902.37,2447.13,1937.33,-22.3%,-1.8%
+Jalana,2798.48,2694.43,3339.91,3.9%,-16.2%
+Jalgaon,2361.9,2368.32,2861.72,-0.3%,-17.5%
+Latur,3237.78,2789.92,498.08,16.1%,550.0%
+Mumbai,4200.0,4434.57,4200.0,-5.3%,-
+Nagpur,3419.35,3472.26,3361.54,-1.5%,1.7%
+Nanded,2264.94,2470.47,2333.05,-8.3%,-2.9%
+Nandurbar,2222.73,2446.29,3252.14,-9.1%,-31.6%
+Nashik,-,2327.86,2613.75,-,-
+Parbhani,2529.45,2340.06,2643.42,8.1%,-4.3%
+Pune,4314.39,4785.88,4894.18,-9.8%,-11.8%
+Raigad,-,-,3699.0,-,-
+Sangli,3397.72,3412.92,3250.0,-0.5%,4.5%
+Satara,3515.71,3739.12,3683.66,-6.0%,-4.6%
+Sholapur,3680.36,3872.16,3840.33,-5.0%,-4.2%
+Thane,4182.8,3898.39,3325.0,7.3%,25.8%
+Vashim,2150.09,2430.69,2450.5,-11.5%,-12.3%
+Wardha,2460.0,-,-,-,-
+Yavatmal,2226.1,2520.99,2558.28,-11.7%,-13.0%
+Average,2890.14,2968.82,3057.54,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

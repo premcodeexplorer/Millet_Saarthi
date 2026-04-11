@@ -1,0 +1,36 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Maharashtra - January, 2023",,
+District,"Prices January, 2023 (Rs./Quintal)","Prices December, 2022 (Rs./Quintal)","Prices January, 2022 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Ahmednagar,3537.69,3420.22,1808.29,3.4%,95.6%
+Akola,2452.0,2175.67,1231.81,12.7%,99.1%
+Amarawati,2000.0,2466.67,1325.85,-18.9%,50.9%
+Beed,3660.65,3247.56,1692.31,12.7%,116.3%
+Buldhana,2333.87,2360.15,1431.41,-1.1%,63.0%
+Chattrapati Sambhajinagar,3157.26,3270.67,1632.94,-3.5%,93.3%
+Dharashiv(Usmanabad),3957.19,3468.01,1794.26,14.1%,120.5%
+Dhule,2458.46,2843.69,1791.55,-13.6%,37.2%
+Hingoli,2985.25,2412.4,1404.33,23.8%,112.6%
+Jalana,3669.23,3460.25,1793.71,6.0%,104.6%
+Jalgaon,2763.08,2557.36,1584.4,8.0%,74.4%
+Latur,3512.49,3325.73,1624.54,5.6%,116.2%
+Mumbai,3868.98,3941.01,3500.0,-1.8%,10.5%
+Nagpur,-,-,1606.25,-,-
+Nanded,2694.44,2633.38,1566.14,2.3%,72.0%
+Nandurbar,2626.58,2648.66,1702.43,-0.8%,54.3%
+Nashik,3185.0,2190.0,1554.7,45.4%,104.9%
+Parbhani,3124.33,3001.62,1608.74,4.1%,94.2%
+Pune,5205.5,5217.57,4098.86,-0.2%,27.0%
+Raigad,3250.0,2895.35,1680.3,12.2%,93.4%
+Sangli,3158.0,3650.94,3053.32,-13.5%,3.4%
+Satara,3749.04,3449.39,2023.86,8.7%,85.2%
+Sholapur,4059.41,3847.69,2297.86,5.5%,76.7%
+Thane,3505.0,3712.5,2850.0,-5.6%,23.0%
+Vashim,-,1775.0,1336.36,-,-
+Wardha,-,-,1055.0,-,-
+Yavatmal,2000.0,-,1900.0,-,5.3%
+Average,3204.73,3082.15,1887.01,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

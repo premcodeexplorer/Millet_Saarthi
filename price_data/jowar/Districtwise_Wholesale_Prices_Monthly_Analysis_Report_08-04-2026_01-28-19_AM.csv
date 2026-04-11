@@ -1,0 +1,27 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - March, 2026",,
+District,"Prices March, 2026 (Rs./Quintal)","Prices February, 2026 (Rs./Quintal)","Prices March, 2025 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,3048.79,-,1800.0,-,69.4%
+Bangalore,3500.0,-,-,-,-
+Belgaum,2430.66,4231.0,4500.0,-42.5%,-46.0%
+Bellary,2727.69,2564.59,2157.46,6.4%,26.4%
+Bidar,4007.59,-,2000.0,-,100.4%
+Bijapur,3300.53,3590.68,-,-8.1%,-
+Chamrajnagar,-,2000.0,-,-,-
+Davangere,2666.1,2422.65,2321.69,10.1%,14.8%
+Dharwad,3335.9,3290.79,1862.35,1.4%,79.1%
+Gadag,3423.26,-,2435.0,-,40.6%
+Hassan,3700.0,-,-,-,-
+Haveri,2857.7,3530.0,-,-19.1%,-
+Kalburgi,3431.51,3852.0,2896.36,-10.9%,18.5%
+Karwar(Uttar Kannad),4650.0,-,-,-,-
+Koppal,1922.2,-,1939.0,-,-0.9%
+Mysore,3891.82,3874.17,-,0.5%,-
+Raichur,2917.82,2885.65,2628.81,1.1%,11.0%
+Shimoga,4182.86,4192.62,3242.59,-0.2%,29.0%
+Average,3293.79,3312.2,2525.75,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+

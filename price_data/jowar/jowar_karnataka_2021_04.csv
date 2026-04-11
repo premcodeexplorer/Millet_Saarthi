@@ -1,0 +1,26 @@
+,,,"District-wise Wholesale Prices Monthly Analysis for Jowar(Sorghum) in Karnataka - April, 2021",,
+District,"Prices April, 2021 (Rs./Quintal)","Prices March, 2021 (Rs./Quintal)","Prices April, 2020 (Rs./Quintal)",Change (Over Previous Month),Change (Over Previous Year)
+Bagalkot,1478.24,2350.0,2637.88,-37.1%,-44.0%
+Bangalore,2644.07,2435.12,3262.4,8.6%,-18.9%
+Belgaum,2335.5,1898.51,3362.07,23.0%,-30.5%
+Bellary,1801.41,1734.94,1785.46,3.8%,0.9%
+Bidar,3133.53,3346.9,3412.64,-6.4%,-8.2%
+Bijapur,2800.0,2336.67,3147.5,19.8%,-11.0%
+Chikmagalur,-,2111.0,-,-,-
+Davangere,1461.29,1249.21,1986.99,17.0%,-26.5%
+Dharwad,1896.54,1879.6,2822.65,0.9%,-32.8%
+Gadag,1852.69,1876.07,2337.21,-1.2%,-20.7%
+Haveri,1300.0,1826.69,2427.44,-28.8%,-46.5%
+Kalburgi,2919.35,3064.93,3598.42,-4.8%,-18.9%
+Kolar,-,-,1858.0,-,-
+Koppal,1708.6,2328.76,2172.05,-26.6%,-21.3%
+Mysore,-,-,3995.45,-,-
+Raichur,2310.47,2051.57,2008.8,12.6%,15.0%
+Shimoga,3150.0,3150.0,3979.17,-,-20.8%
+Average,2199.41,2242.66,2799.63,-,-
+
+Note:
+Weighted Average Price = ∑(arrival quantity * modal price) / ∑arrival quantity
+Change (Over Previous Month) = [Price - Price(Over Previous Month)/Price(Over Previous Month)] * 100
+Change (Over Previous Year) = [Price - Price(Over Previous Year)/Price(Over Previous Year)] * 100
+
