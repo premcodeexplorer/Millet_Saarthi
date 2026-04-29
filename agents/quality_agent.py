@@ -1,33 +1,46 @@
-"""Agent 1 — Quality Assessment (MobileNetV3-Large inference wrapper).
+"""Agent 1 — Quality Assessment (EfficientNetB0 inference wrapper).
 
-Loads the checkpoint trained in ``train_classifier.ipynb`` and classifies a
-grain image into (millet, grade).
+Loads the retrained Keras checkpoint (``best_model.h5``) and classifies a grain
+image into (millet, grade). Predictions below 75% confidence are rejected as
+"Not a valid grain image" so the planner aborts the pipeline.
+
+EfficientNetB0 expects raw 0-255 pixels — its own ``preprocess_input`` applies
+the right scaling internally, so we MUST NOT divide by 255 ourselves.
 """
 from __future__ import annotations
 
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Optional
 
-import numpy as np
-import torch
-import torch.nn as nn
-from PIL import Image, ImageFilter
-from torchvision import models, transforms
+# Silence TF info logs before import
+os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
 
-from app.config import QUALITY_CLASSES_PATH, QUALITY_MODEL_PATH
+import keras
+import numpy as np
+from keras.applications.efficientnet import preprocess_input
+from PIL import Image, ImageFilter
+
+from app.config import (
+    IMG_SIZE,
+    QUALITY_CLASSES_PATH,
+    QUALITY_CONFIDENCE_THRESHOLD,
+    QUALITY_MODEL_PATH,
+)
 
 
 class QualityAgent:
+    BLUR_THRESHOLD = 500.0
+    _MILLET_TOKENS = {"jowar", "bajra", "ragi"}
+
     def __init__(
         self,
         model_path: Optional[Path] = None,
         classes_path: Optional[Path] = None,
-        device: Optional[str] = None,
     ) -> None:
         self.log = logging.getLogger("QualityAgent")
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
 
         cp = Path(classes_path or QUALITY_CLASSES_PATH)
         if cp.exists():
@@ -36,36 +49,22 @@ class QualityAgent:
         else:
             self.log.warning(f"{cp} missing — using default class list")
             self.classes = [
-                "Bajra grade a", "Bajra grade b",
-                "jowar grade a", "Jowar grade b", "jowar grade c",
-                "Ragi grade A", "Ragi grade b",
+                "Bajra Grade A", "Bajra Grade B",
+                "Jowar Grade A", "Jowar Grade B", "Jowar Grade C",
+                "Ragi Grade A", "Ragi Grade B",
             ]
 
-        self.model = models.mobilenet_v3_large(weights=None)
-        self.model.classifier[3] = nn.Linear(
-            self.model.classifier[3].in_features, len(self.classes)
-        )
         mp = Path(model_path or QUALITY_MODEL_PATH)
         if mp.exists():
-            self.model.load_state_dict(torch.load(mp, map_location=self.device))
-            self.log.info(f"Loaded checkpoint {mp}")
+            self.model = keras.models.load_model(mp, compile=False)
+            self.log.info(f"Loaded EfficientNetB0 checkpoint {mp}")
         else:
-            self.log.warning(f"No checkpoint at {mp} — random weights (demo mode)")
-        self.model.eval().to(self.device)
-
-        self.tf = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-        ])
-
-    _MILLET_TOKENS = {"jowar", "bajra", "ragi"}
-    BLUR_THRESHOLD = 500.0  # below this = too blurry
+            self.log.warning(f"No checkpoint at {mp} — demo mode (mock predictions)")
+            self.model = None
 
     @staticmethod
     def _is_blurry(pil_img: Image.Image) -> tuple[bool, float]:
-        """Check if image is too blurry using Laplacian variance."""
-        grey = pil_img.convert("L").resize((224, 224))
+        grey = pil_img.convert("L").resize((IMG_SIZE, IMG_SIZE))
         edges = grey.filter(ImageFilter.Kernel(
             size=(3, 3),
             kernel=[-1, -1, -1, -1, 8, -1, -1, -1, -1],
@@ -77,15 +76,26 @@ class QualityAgent:
 
     @classmethod
     def _parse_class(cls, name: str) -> tuple[str, str]:
-        """Extract (millet, grade) from labels like 'augmented jowar grade a'.
-
-        Scans tokens for a known millet name (jowar/bajra/ragi) and takes the
-        final token as the grade letter. Robust to prefixes like 'augmented'.
-        """
         tokens = name.strip().lower().split()
         millet = next((t for t in tokens if t in cls._MILLET_TOKENS), tokens[0])
         grade = tokens[-1].upper()
         return millet, grade
+
+    def _predict_class(self, pil_img: Image.Image) -> tuple[int, np.ndarray]:
+        """Run the EfficientNetB0 forward pass. Returns (top_idx, probs)."""
+        # Resize to 224x224, keep raw 0-255 pixels — preprocess_input scales internally
+        arr = np.array(pil_img.resize((IMG_SIZE, IMG_SIZE)), dtype=np.float32)
+        arr = preprocess_input(arr)
+        arr = np.expand_dims(arr, 0)
+        logits = self.model.predict(arr, verbose=0)[0]
+        s = float(logits.sum())
+        probs = logits if 0.99 <= s <= 1.01 else self._softmax(logits)
+        return int(probs.argmax()), probs
+
+    @staticmethod
+    def _softmax(x: np.ndarray) -> np.ndarray:
+        e = np.exp(x - x.max())
+        return e / e.sum()
 
     def predict(self, state: dict) -> dict:
         if "image_path" not in state:
@@ -100,32 +110,47 @@ class QualityAgent:
             }
         pil_img = Image.open(path).convert("RGB")
 
-        # Reject blurry images
         blurry, blur_score = self._is_blurry(pil_img)
         if blurry:
             self.log.warning(f"Image too blurry (score={blur_score:.1f})")
             return {
-                "millet": "unknown",
-                "grade": "INVALID",
-                "quality_score": 0.0,
-                "confidence": 0.0,
-                "top3": [],
-                "quality_source": "model",
+                "millet": "unknown", "grade": "INVALID",
+                "quality_score": 0.0, "confidence": 0.0,
+                "top3": [], "quality_source": "model",
                 "invalid_image": True,
                 "error": "Image is too blurry. Please upload a clear, focused photo of the grains.",
             }
 
-        img = self.tf(pil_img).unsqueeze(0).to(self.device)
-        with torch.no_grad():
-            probs = torch.softmax(self.model(img), 1)[0].cpu().numpy()
-        idx = int(probs.argmax())
+        if self.model is None:
+            return {
+                "millet": "jowar", "grade": "A",
+                "quality_score": 0.87, "confidence": 0.92,
+                "quality_source": "mock",
+            }
+
+        idx, probs = self._predict_class(pil_img)
         conf = float(probs[idx])
+
+        # Reject if confidence below threshold — orchestrator/planner will abort
+        if conf < QUALITY_CONFIDENCE_THRESHOLD:
+            self.log.warning(
+                f"Confidence {conf:.2f} < {QUALITY_CONFIDENCE_THRESHOLD} — rejecting"
+            )
+            return {
+                "millet": "unknown", "grade": "INVALID",
+                "quality_score": round(conf, 3), "confidence": round(conf, 3),
+                "top3": [], "quality_source": "model",
+                "invalid_image": True,
+                "error": "Not a valid grain image",
+            }
+
         millet, grade = self._parse_class(self.classes[idx])
         top3_idx = probs.argsort()[-3:][::-1]
         top3 = [
             {"class": self.classes[int(i)], "prob": round(float(probs[int(i)]), 3)}
             for i in top3_idx
         ]
+
         return {
             "millet": millet,
             "grade": grade,

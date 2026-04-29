@@ -18,15 +18,17 @@ MODELS_DIR = ROOT / "models"
 CACHE_DIR = DATA_DIR / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-# Agent 1 — MobileNetV3 grain classifier
-QUALITY_MODEL_PATH = MODELS_DIR / "mobilenetv3_best.pth"
+# Agent 1 — EfficientNetB0 grain classifier (Keras .h5)
+QUALITY_MODEL_PATH = ROOT / "best_model.h5"
 QUALITY_CLASSES_PATH = MODELS_DIR / "classes.json"
 IMG_SIZE = 224
+QUALITY_CONFIDENCE_THRESHOLD = 0.75
 
 # Agent 2 — XGBoost price model
-PRICE_MODEL_PATH = MODELS_DIR / "price_model.pkl"
+PRICE_MODEL_PATH = MODELS_DIR / "price_model.json"
 PRICE_ENCODERS_PATH = MODELS_DIR / "encoders.pkl"
 PRICE_FEATURES_PATH = MODELS_DIR / "features.txt"
+PRICE_HISTORY_PATH = DATA_DIR / "master_prices.csv"
 
 # Agent 3 — Market comparison
 APMC_MARKETS_PATH = DATA_DIR / "apmc_markets.json"
@@ -36,3 +38,4 @@ OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 
 # Optional API keys
 OPENWEATHER_KEY = os.getenv("OPENWEATHER_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")

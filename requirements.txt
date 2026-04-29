@@ -1,6 +1,8 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision
+tensorflow==2.15.0
+keras>=3.0
 numpy<2.0
 pandas
 scikit-learn

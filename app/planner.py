@@ -111,5 +111,14 @@ class Planner:
                 "weather + festival + shelf life",
             )
 
-        # ---- 7. Done -------------------------------------------------------
+        # ---- 7. Explainer: Marathi/English natural language summary --------
+        if "explanation" not in state:
+            return (
+                ["explainer"],
+                "Running explainer (Agent 5) — Gemini LLM converts the "
+                "structured decision into a Marathi + English paragraph "
+                "for the farmer",
+            )
+
+        # ---- 8. Done -------------------------------------------------------
         return ([], "Pipeline complete")

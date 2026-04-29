@@ -25,6 +25,7 @@ from typing import Any, Callable, Optional
 from PIL import Image, ImageEnhance
 
 from agents.decision_agent import DecisionAgent
+from agents.explainer import ExplainerAgent
 from agents.market_agent import MarketAgent
 from agents.price_agent import PriceAgent
 from agents.quality_agent import QualityAgent
@@ -42,6 +43,7 @@ class MilletSaarthiOrchestrator:
         self.price = PriceAgent()
         self.market = MarketAgent(price_agent=self.price)
         self.decision = DecisionAgent()
+        self.explainer = ExplainerAgent()
         self.planner = Planner()
         # Tool registry — planner picks agent by name
         self._tools: dict[str, Callable[[dict], dict]] = {
@@ -51,6 +53,7 @@ class MilletSaarthiOrchestrator:
             "weather":       self._run_weather,
             "price":         self._run_price,
             "decision":      self._run_decision,
+            "explainer":     self._run_explainer,
             "quality_retry": self._run_quality_retry,
             "human_review":  self._run_human_review,
         }
@@ -224,6 +227,9 @@ class MilletSaarthiOrchestrator:
 
     def _run_decision(self, state: dict) -> dict:
         return self.decision.predict(state)
+
+    def _run_explainer(self, state: dict) -> dict:
+        return self.explainer.predict(state)
 
     def _run_human_review(self, state: dict) -> dict:
         return {
