@@ -14,7 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-import torch  # must import before streamlit to avoid DLL conflict on Windows
+if sys.platform == "win32":
+    import torch  # must import before streamlit to avoid DLL conflict on Windows
 import streamlit as st
 
 from app.orchestrator import MilletSaarthiOrchestrator
