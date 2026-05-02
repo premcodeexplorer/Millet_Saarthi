@@ -38,4 +38,3 @@ OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 
 # Optional API keys
 OPENWEATHER_KEY = os.getenv("OPENWEATHER_KEY", "")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")

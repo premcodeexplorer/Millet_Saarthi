@@ -19,6 +19,22 @@ from app.config import OPEN_METEO_FORECAST_URL
 
 # --- Static knowledge tables ----------------------------------------------
 
+# Marathi names for the three millets we support
+MILLET_MR = {"jowar": "ज्वारी", "bajra": "बाजरी", "ragi": "नाचणी"}
+
+# Bilingual labels for actions surfaced in the farmer-facing paragraph
+ACTION_EN = {
+    "SELL_NOW": "sell now", "URGENT_SELL": "urgently sell",
+    "WAIT": "wait", "HOLD_CAUTION": "hold (with caution)",
+    "HUMAN_REVIEW": "consult an expert",
+}
+ACTION_MR = {
+    "SELL_NOW": "आता विकणे", "URGENT_SELL": "तातडीने विकणे",
+    "WAIT": "थांबणे", "HOLD_CAUTION": "सावधगिरीने ठेवणे",
+    "HUMAN_REVIEW": "तज्ञांचा सल्ला घेणे",
+}
+
+
 SHELF_LIFE_RULES = [
     {"max_moisture": 12.0, "days": 30, "note": "Dry grain — safe for long storage"},
     {"max_moisture": 14.0, "days": 18, "note": "Borderline — safe for 2-3 weeks"},
@@ -265,6 +281,10 @@ class DecisionAgent:
         if issues:
             insights.append("⚠️ " + "; ".join(issues))
 
+        explanation = self._build_explanation(
+            state, action, weather, shelf, festival
+        )
+
         return {
             "action": action,
             "market": (state.get("best_market") or {}).get("market"),
@@ -277,4 +297,57 @@ class DecisionAgent:
             "next_festival": festival,
             "msp_advisory": msp_advisory,
             "decision_insights": insights,
+            "explanation": explanation,
         }
+
+    @staticmethod
+    def _build_explanation(
+        state: dict, action: str, weather: dict, shelf: dict, festival: Optional[dict]
+    ) -> dict:
+        """Generate a friendly Marathi + English paragraph summarizing the
+        decision for the farmer. Pure templates — no LLM, no network call."""
+        best = state.get("best_market") or {}
+        millet_raw = str(state.get("millet") or "millet").lower()
+        millet_mr = MILLET_MR.get(millet_raw, millet_raw)
+        millet_en = millet_raw.title()
+        grade = state.get("grade") or "B"
+        qty = state.get("quantity_quintal") or 1
+        market_name = best.get("market") or "the nearest APMC"
+        distance = round(best.get("distance_km") or 0, 1)
+        net_price = round(
+            best.get("net_price_per_q") or state.get("expected_price") or 0, 2
+        )
+        total_revenue = round(
+            best.get("total_net_revenue") or state.get("expected_total_revenue") or 0, 2
+        )
+        rain_mm = weather.get("rain_mm_3d", 0)
+        shelf_days = shelf.get("days", "—")
+        action_up = (action or "SELL_NOW").upper()
+        action_en_word = ACTION_EN.get(action_up, "sell")
+        action_mr_word = ACTION_MR.get(action_up, "विकणे")
+
+        marathi = (
+            f"शेतकरी साहेब, तुमची ग्रेड {grade} {millet_mr} ({qty} क्विंटल) "
+            f"{market_name} येथे {action_mr_word} सर्वोत्तम आहे. "
+            f"तुम्हाला सर्व खर्च वजा करून ₹{net_price}/क्विंटल मिळेल — एकूण ₹{total_revenue}. "
+            f"पुढील ३ दिवसांत {rain_mm} मिमी पाऊस अपेक्षित आहे; "
+            f"धान्य सुरक्षित ठेवण्याचा कालावधी {shelf_days} दिवस आहे."
+        )
+        english = (
+            f"Sir, your Grade {grade} {millet_en} ({qty} quintals) is best to "
+            f"{action_en_word} at {market_name} ({distance} km away). "
+            f"Net price ₹{net_price}/quintal — total revenue ₹{total_revenue}. "
+            f"Rain next 3 days: {rain_mm} mm. Storage life: {shelf_days} days."
+        )
+        if festival:
+            festival_en = (
+                f" Demand rises in {festival['days_away']} days for {festival['name']} "
+                f"(+{festival['spike_pct']}%)."
+            )
+            festival_mr = (
+                f" {festival['days_away']} दिवसांनी {festival['name']} सणासाठी मागणी "
+                f"+{festival['spike_pct']}% वाढेल."
+            )
+            english += festival_en
+            marathi += festival_mr
+        return {"marathi": marathi, "english": english}
