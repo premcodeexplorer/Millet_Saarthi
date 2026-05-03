@@ -9,5 +9,5 @@ Pillow
 requests
 geopy
 streamlit
-googletrans==4.0.0-rc.1
+deep-translator>=1.11
 python-dotenv

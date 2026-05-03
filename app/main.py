@@ -40,7 +40,8 @@ LANG = {
         "agent1_msg": "🔍 Agent 1 — classifying grain and grade",
         "agent2_msg": "💰 Agent 2 — predicting market price",
         "agent3_msg": "🗺️ Agent 3 — comparing nearby APMC markets",
-        "agent4_msg": "🧠 Agent 4 — running decision rules + weather",
+        "weather_msg": "🌦️ Weather tool — fetching 7-day forecast",
+        "agent4_msg": "🧠 Agent 4 — fusing all signals into final recommendation",
         "done": "Pipeline complete",
         "tab_dashboard": "🌾 Farmer Dashboard",
         "tab_analysis": "🔬 Analysis Flow (for mentor demo)",
@@ -111,7 +112,8 @@ LANG = {
         "agent1_msg": "🔍 एजेंट 1 — अनाज और ग्रेड की पहचान",
         "agent2_msg": "💰 एजेंट 2 — बाजार मूल्य का अनुमान",
         "agent3_msg": "🗺️ एजेंट 3 — नजदीकी APMC मंडियों की तुलना",
-        "agent4_msg": "🧠 एजेंट 4 — निर्णय नियम और मौसम",
+        "weather_msg": "🌦️ मौसम — 7-दिवसीय पूर्वानुमान प्राप्त कर रहे हैं",
+        "agent4_msg": "🧠 एजेंट 4 — सभी संकेतों से अंतिम सिफारिश तैयार",
         "done": "पाइपलाइन पूरी हुई",
         "tab_dashboard": "🌾 किसान डैशबोर्ड",
         "tab_analysis": "🔬 विश्लेषण प्रवाह (मेंटर डेमो)",
@@ -182,7 +184,8 @@ LANG = {
         "agent1_msg": "🔍 एजंट 1 — धान्य आणि ग्रेड ओळख",
         "agent2_msg": "💰 एजंट 2 — बाजारभाव अंदाज",
         "agent3_msg": "🗺️ एजंट 3 — जवळच्या APMC बाजारांची तुलना",
-        "agent4_msg": "🧠 एजंट 4 — निर्णय नियम आणि हवामान",
+        "weather_msg": "🌦️ हवामान साधन — 7 दिवसांचा अंदाज मिळवत आहे",
+        "agent4_msg": "🧠 एजंट 4 — सर्व माहितीतून अंतिम शिफारस",
         "done": "पाइपलाइन पूर्ण",
         "tab_dashboard": "🌾 शेतकरी डॅशबोर्ड",
         "tab_analysis": "🔬 विश्लेषण प्रवाह (मेंटर डेमो)",
@@ -240,24 +243,107 @@ LANG = {
     },
 }
 
-# Language codes for googletrans
+# Language codes for the translation backend
 _LANG_CODE = {"English": "en", "हिंदी": "hi", "मराठी": "mr"}
 _translate_cache: dict[tuple[str, str], str] = {}
 
+# Hand-curated translations for the most common templated strings produced by
+# the agents. Checked first in _tr() before falling back to deep-translator.
+# Guarantees the right wording for these strings even if the network call fails
+# and avoids 30+ live API calls on first page render.
+_MANUAL_TR: dict[str, dict[str, str]] = {
+    "मराठी": {
+        # Millet names (used as standalone metric values)
+        "Bajra": "बाजरी",
+        "Jowar": "ज्वारी",
+        "Ragi": "नाचणी",
+        "bajra": "बाजरी",
+        "jowar": "ज्वारी",
+        "ragi": "नाचणी",
+        # Quality source labels
+        "model": "मॉडेल",
+        "image": "प्रतिमा",
+        # Top-3 quality classes
+        "Bajra Grade A": "बाजरी ग्रेड A", "Bajra Grade B": "बाजरी ग्रेड B",
+        "Jowar Grade A": "ज्वारी ग्रेड A", "Jowar Grade B": "ज्वारी ग्रेड B", "Jowar Grade C": "ज्वारी ग्रेड C",
+        "Ragi Grade A": "नाचणी ग्रेड A", "Ragi Grade B": "नाचणी ग्रेड B",
+        # Shelf life notes (static — exact match)
+        "Dry grain — safe for long storage": "कोरडे धान्य — दीर्घ साठवणीसाठी सुरक्षित",
+        "Borderline — safe for 2-3 weeks": "मर्यादित आर्द्रता — २-३ आठवडे सुरक्षित",
+        "High moisture — urgent, spoilage risk": "जास्त आर्द्रता — तातडीने विका, खराब होण्याचा धोका",
+        "High moisture — very short shelf life": "जास्त आर्द्रता — अत्यंत कमी साठवणूक काळ",
+        # Static weather summaries
+        "Clear and dry for the next week": "पुढील आठवडा स्वच्छ आणि कोरडा",
+        "Weather data unavailable — assume neutral": "हवामान माहिती उपलब्ध नाही — सामान्य गृहीत",
+        "No location — weather skipped": "स्थान नाही — हवामान वगळले",
+        # Festival reasons (static — from FESTIVALS table)
+        "Til-gud laddoo + bajra bhakri demand": "तिळगूळ लाडू + बाजरी भाकरीची मागणी",
+        "Puran poli and sweet preparations": "पुरणपोळी आणि गोड पदार्थ",
+        "Marathi new year — sweet rotis": "मराठी नववर्ष — गोड पोळ्या",
+        "Community bhandaras": "सामूहिक भंडारे",
+        "Vari pilgrimage — bajra/jowar bhakri staple": "वारी यात्रा — बाजरी/ज्वारी भाकरी मुख्य अन्न",
+        "10-day festival + modak preparations": "१०-दिवसांचा सण + मोदक तयारी",
+        "Fasting foods (ragi, bajra prominent)": "उपवासाचे अन्न (नाचणी, बाजरी प्रमुख)",
+        "Festive feasts": "सणाचे भोजन",
+        "Peak festive demand — sweets and snacks": "सणाची सर्वोच्च मागणी — मिठाई आणि नाश्ता",
+        "Winter festive baking": "हिवाळी सणाचे भाजणे",
+        # Common phrase
+        "Safe to sell.": "विकणे सुरक्षित.",
+    },
+    "हिंदी": {
+        "Bajra": "बाजरा", "Jowar": "ज्वार", "Ragi": "रागी",
+        "bajra": "बाजरा", "jowar": "ज्वार", "ragi": "रागी",
+        "model": "मॉडल", "image": "तस्वीर",
+        "Bajra Grade A": "बाजरा ग्रेड A", "Bajra Grade B": "बाजरा ग्रेड B",
+        "Jowar Grade A": "ज्वार ग्रेड A", "Jowar Grade B": "ज्वार ग्रेड B", "Jowar Grade C": "ज्वार ग्रेड C",
+        "Ragi Grade A": "रागी ग्रेड A", "Ragi Grade B": "रागी ग्रेड B",
+        "Dry grain — safe for long storage": "सूखा अनाज — लंबे भंडारण के लिए सुरक्षित",
+        "Borderline — safe for 2-3 weeks": "सीमित नमी — 2-3 हफ्ते सुरक्षित",
+        "High moisture — urgent, spoilage risk": "अधिक नमी — तुरंत बेचें, खराब होने का खतरा",
+        "High moisture — very short shelf life": "अधिक नमी — बहुत कम भंडारण अवधि",
+        "Clear and dry for the next week": "अगले हफ्ते मौसम साफ और सूखा रहेगा",
+        "Weather data unavailable — assume neutral": "मौसम डेटा उपलब्ध नहीं — सामान्य मानें",
+        "No location — weather skipped": "स्थान नहीं — मौसम छोड़ दिया गया",
+        "Til-gud laddoo + bajra bhakri demand": "तिल-गुड़ लड्डू + बाजरा रोटी की मांग",
+        "Puran poli and sweet preparations": "पूरन पोली और मिठाई की तैयारी",
+        "Marathi new year — sweet rotis": "मराठी नववर्ष — मीठी रोटी",
+        "Community bhandaras": "सामुदायिक भंडारे",
+        "Vari pilgrimage — bajra/jowar bhakri staple": "वारी तीर्थयात्रा — बाजरा/ज्वार रोटी मुख्य आहार",
+        "10-day festival + modak preparations": "10 दिन का त्योहार + मोदक तैयारी",
+        "Fasting foods (ragi, bajra prominent)": "व्रत के भोजन (रागी, बाजरा प्रमुख)",
+        "Festive feasts": "त्योहारी भोज",
+        "Peak festive demand — sweets and snacks": "त्योहारी मांग चरम पर — मिठाई और स्नैक्स",
+        "Winter festive baking": "सर्दी की त्योहारी पकाई",
+        "Safe to sell.": "बेचना सुरक्षित।",
+    },
+}
+
 def _tr(text: str, lang_key: str) -> str:
-    """Translate text to the selected language. Returns original if English."""
+    """Translate text to the selected language. Returns original on failure.
+
+    Uses deep-translator (stable Google Translate wrapper). googletrans is
+    notoriously broken — Google blocks it intermittently and it silently
+    falls back to English, which is why Marathi mode used to leak English
+    everywhere.
+    """
     if lang_key == "English" or not text or not text.strip():
         return text
+    # 1. Check the hand-curated overrides first (free, instant, guaranteed correct)
+    manual = _MANUAL_TR.get(lang_key, {}).get(text.strip())
+    if manual:
+        return manual
     dest = _LANG_CODE[lang_key]
     cache_key = (text, dest)
     if cache_key in _translate_cache:
         return _translate_cache[cache_key]
+    # 2. Fall back to deep-translator for novel / templated strings
     try:
-        from googletrans import Translator
-        translator = Translator()
-        result = translator.translate(text, dest=dest)
-        _translate_cache[cache_key] = result.text
-        return result.text
+        from deep_translator import GoogleTranslator
+        result = GoogleTranslator(source="en", target=dest).translate(text)
+        if result:
+            _translate_cache[cache_key] = result
+            return result
+        return text
     except Exception:
         return text
 
@@ -270,13 +356,148 @@ st.set_page_config(
 )
 
 
+# --- Custom CSS (pills, cards, mobile) -------------------------------------
+st.markdown(
+    """
+<style>
+/* Palette: primary olive #546B41 · cream #FFF8EC · tan #DCCCAC · text #333 */
+
+/* Traffic-light decision cards — match warm cream/olive theme */
+.ms-card {
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 4px 0;
+    background: #FFFCF4;
+    box-shadow: 0 1px 2px rgba(86, 64, 32, 0.06);
+}
+.ms-card-green { border-left: 5px solid #546B41; }   /* primary olive */
+.ms-card-amber { border-left: 5px solid #B8860B; }   /* warm goldenrod */
+.ms-card-red   { border-left: 5px solid #A33D2C; }   /* terracotta */
+.ms-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3A3A3A;
+    margin-bottom: 4px;
+}
+.ms-card-value { font-size: 22px; font-weight: 600; color: #333333; line-height: 1.2; }
+.ms-card-sub   { font-size: 12px; color: #5C5C5C; margin-top: 6px; }
+
+/* Big revenue number — uses primary olive instead of bright generic green */
+.ms-revenue-label { font-size: 14px; color: #5C5C5C; }
+.ms-revenue-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: #546B41;
+    line-height: 1.2;
+    margin-top: -4px;
+}
+
+/* Bilingual subtitle helper */
+.ms-en-sub { font-size: 11px; color: #8A8A8A; font-weight: 400; margin-top: -6px; }
+
+/* Reasoning bullet lines — slightly larger so they're easier to read */
+.ms-reason {
+    font-size: 15.5px;
+    color: #3A3A3A;
+    line-height: 1.75;
+    margin: 4px 0;
+}
+.ms-reason b { color: #1f2937; }
+
+/* Farmer-facing recommendation BOX — primary call-out at top of dashboard */
+.ms-reco-box {
+    background: #FAF3E0;                     /* slightly darker cream */
+    border: 1px solid #DCCCAC;               /* secondary palette tan */
+    border-left: 6px solid #546B41;          /* primary olive emphasis */
+    border-radius: 10px;
+    padding: 16px 22px;
+    margin: 6px 0 18px 0;
+    color: #333333;
+}
+.ms-reco-box .ms-reco-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #3A3A3A;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.ms-reco-box .ms-reco-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2F2F2F;
+}
+
+/* Native Streamlit bordered containers — make them match the recommendation
+   box (cream background + olive left border). We only use bordered containers
+   for the price-chart wrapper, so this single rule is safe. */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: #FAF3E0 !important;
+    border: 1px solid #DCCCAC !important;
+    border-left: 6px solid #546B41 !important;
+    border-radius: 10px !important;
+}
+
+/* Mobile responsive — stack columns below 768px */
+@media (max-width: 768px) {
+    [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 0 100% !important;
+        min-width: unset !important;
+    }
+    .ms-pill { display: block; margin: 4px 0; text-align: center; }
+    .ms-revenue-value { font-size: 28px; }
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
 @st.cache_resource
 def get_orchestrator() -> MilletSaarthiOrchestrator:
     return MilletSaarthiOrchestrator()
 
 
-# --- Language selector (top of sidebar) ------------------------------------
-lang_choice = st.sidebar.selectbox("Language / भाषा", list(LANG.keys()))
+@st.cache_data
+def get_price_history():
+    """Load master_prices.csv once for sparkline lookups."""
+    import pandas as pd
+    from app.config import PRICE_HISTORY_PATH
+    return pd.read_csv(PRICE_HISTORY_PATH)
+
+
+def _weather_risk(weather: dict) -> tuple[str, str, str]:
+    """Return (level, marathi_label, color_class) based on rain in next 3 days.
+
+    Thresholds: <5mm safe (green), 5-20mm caution (amber), >20mm risk (red).
+    """
+    rain_3d = weather.get("rain_mm_3d", 0) or 0
+    if rain_3d > 20:
+        return ("danger", "धोका", "red")
+    if rain_3d >= 5:
+        return ("caution", "सावधान", "amber")
+    return ("safe", "सुरक्षित", "green")
+
+
+# --- Language selectors (header + sidebar, kept in sync via session state)
+LANGS = list(LANG.keys())
+if "app_lang" not in st.session_state:
+    st.session_state.app_lang = "मराठी"
+
+# Sidebar selector (always visible per layout constraint)
+sb_lang = st.sidebar.selectbox(
+    "Language / भाषा",
+    LANGS,
+    index=LANGS.index(st.session_state.app_lang),
+    key="sidebar_lang_widget",
+)
+if sb_lang != st.session_state.app_lang:
+    st.session_state.app_lang = sb_lang
+    st.rerun()
+
+lang_choice = st.session_state.app_lang
 T = LANG[lang_choice]
 
 
@@ -307,6 +528,7 @@ run_btn = st.sidebar.button(
 
 
 # --- Header ----------------------------------------------------------------
+# Language selector lives only in the sidebar (per layout constraint).
 st.title(T["main_title"])
 st.caption(T["subtitle"])
 
@@ -335,6 +557,7 @@ with st.status(T["running"], expanded=True) as status:
     st.write(T["agent1_msg"])
     st.write(T["agent2_msg"])
     st.write(T["agent3_msg"])
+    st.write(T["weather_msg"])
     st.write(T["agent4_msg"])
     result = orch.run(
         image_path=tmp_path,
@@ -358,6 +581,29 @@ tab_dashboard, tab_analysis = st.tabs(
 # TAB 1 — FARMER DASHBOARD
 # ==========================================================================
 with tab_dashboard:
+    # --- Top: farmer recommendation (single language, boxed) --------------
+    # Shows the recommendation in the language currently selected — this is
+    # the final answer the farmer reads first, so it gets the prominent
+    # cream-and-olive call-out box that matches the app theme.
+    _explanation_top = result.get("explanation") or {}
+    if _explanation_top:
+        if lang_choice == "मराठी":
+            _reco_text = _explanation_top.get("marathi", "—")
+        elif lang_choice == "English":
+            _reco_text = _explanation_top.get("english", "—")
+        else:
+            # Hindi: translate the English summary on the fly via deep-translator
+            _reco_text = _tr(_explanation_top.get("english", "—"), lang_choice)
+
+        st.markdown(
+            f"<div class='ms-reco-box'>"
+            f"<div class='ms-reco-title'>📢 {T['explainer_header'].replace('📢 ', '').split(' (')[0]}</div>"
+            f"<div class='ms-reco-text'>{_reco_text}</div>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+        st.divider()
+
     # --- Top: recommendation banner ---------------------------------------
     action = result.get("action", "UNKNOWN")
     action_display = T.get("actions", {}).get(action, action)
@@ -388,15 +634,18 @@ with tab_dashboard:
 
         _best = result.get("best_market") or {}
         if _best:
-            b1, b2, b3, b4 = st.columns(4)
-            b1.metric(T["market"], _best.get("market", "-"))
-            b2.metric(T["distance"], f"{_best.get('distance_km', 0)} km")
-            b3.metric(T["transport"], f"₹{_best.get('transport_per_q', 0):,.0f}")
-            b4.metric(
+            # 2x2 metric grid (instead of 4 narrow columns) so longer market
+            # names like "पुणे एपीएमसी" or "Ahmednagar APMC" don't truncate.
+            b1, b2 = st.columns(2)
+            b1.metric(T["market"], _tr(_best.get("market", "-"), lang_choice))
+            b2.metric(
                 T["net_profit"],
                 f"₹{_best.get('total_net_revenue', 0):,.0f}",
                 delta=f"₹{_best.get('net_price_per_q', 0):,.0f}/q",
             )
+            b3, b4 = st.columns(2)
+            b3.metric(T["distance"], f"{_best.get('distance_km', 0)} km")
+            b4.metric(T["transport"], f"₹{_best.get('transport_per_q', 0):,.0f}")
 
         st.markdown(
             f"**{T['verification']}:** {disp_status} • "
@@ -405,7 +654,7 @@ with tab_dashboard:
         if result.get("issues"):
             with st.expander(T["flagged_issues"], expanded=True):
                 for i in result["issues"]:
-                    st.markdown(f"- {i}")
+                    st.markdown(f"- {_tr(i, lang_choice)}")
 
     st.divider()
 
@@ -414,26 +663,65 @@ with tab_dashboard:
     if result.get("invalid_image"):
         st.error(f"**{result.get('error', 'Invalid image uploaded.')}**")
     else:
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric(T["grain"], result.get("millet", "?").title())
+        # 3 columns — "source" (model/image) is implementation detail, not
+        # something the farmer needs to see.
+        c1, c2, c3 = st.columns(3)
+        c1.metric(T["grain"], _tr(result.get("millet", "?").title(), lang_choice))
         c2.metric(T["grade"], result.get("grade", "?"))
         c3.metric(T["confidence"], f"{result.get('quality_score',0)*100:.1f}%")
-        c4.metric(T["source"], result.get("quality_source", "-"))
     if result.get("top3"):
         with st.expander(T["top3"]):
             for t in result["top3"]:
-                st.progress(t["prob"], text=f"{t['class']} — {t['prob']*100:.1f}%")
+                st.progress(t["prob"], text=f"{_tr(t['class'], lang_choice)} — {t['prob']*100:.1f}%")
+
+    st.divider()
 
     # --- Agent 2: Price ----------------------------------------------------
     st.header(T["price_header"])
     c1, c2, c3, c4 = st.columns(4)
     c1.metric(T["expected_price"], f"₹{result.get('expected_price',0):,.0f}")
     c2.metric(T["trend"], disp_trend)
-    c3.metric(T["total_revenue"], f"₹{result.get('expected_total_revenue',0):,.0f}")
+    # Total revenue — emphasized in 36px green (most important number for the farmer)
+    with c3:
+        st.markdown(
+            f"<div class='ms-revenue-label'>{T['total_revenue']}</div>"
+            f"<div class='ms-revenue-value'>₹{result.get('expected_total_revenue',0):,.0f}</div>"
+            f"<div class='ms-en-sub'>Total revenue</div>",
+            unsafe_allow_html=True,
+        )
     c4.metric(T["model_confidence"], f"{result.get('confidence',0)*100:.0f}%")
     pr = result.get("price_range")
     if pr:
         st.caption(f"{T['price_range']}: ₹{pr[0]:,.0f} – ₹{pr[1]:,.0f}")
+
+    # 12-month price sparkline — wrapped in a bordered container that the
+    # global CSS styles into a cream + olive call-out box matching the
+    # recommendation box at the top of the page.
+    try:
+        hist_df = get_price_history()
+        millet_low = (result.get("millet") or "").lower()
+        farmer_state = result.get("farmer_state") or "Maharashtra"
+        farmer_district = result.get("farmer_district") or "Pune"
+        slc = hist_df[
+            (hist_df["millet"] == millet_low)
+            & (hist_df["state"] == farmer_state)
+            & (hist_df["district"] == farmer_district)
+        ].sort_values(["year", "month"]).tail(12)
+        if not slc.empty and len(slc) >= 3:
+            slc = slc.copy()
+            slc["period"] = slc["year"].astype(str) + "-" + slc["month"].astype(str).str.zfill(2)
+            chart_df = slc.set_index("period")[["modal_price"]]
+            chart_df.columns = [T["expected_price"]]
+            with st.container(border=True):
+                st.markdown(
+                    f"**📈 {_tr('Last 12 months', lang_choice)} — "
+                    f"{_tr(farmer_district, lang_choice)} ({millet_low})**"
+                )
+                st.line_chart(chart_df, height=160, use_container_width=True)
+    except Exception:
+        pass
+
+    st.divider()
 
     # --- Agent 3: Market ---------------------------------------------------
     st.header(T["market_header"])
@@ -443,14 +731,14 @@ with tab_dashboard:
 
     if best:
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric(T["best_market"], best.get("market", "-"))
+        c1.metric(T["best_market"], _tr(best.get("market", "-"), lang_choice))
         c2.metric(T["net_per_q"], f"₹{best.get('net_price_per_q',0):,.0f}")
         c3.metric(T["distance"], f"{best.get('distance_km',0)} km")
         c4.metric(T["total_net_rev"], f"₹{best.get('total_net_revenue',0):,.0f}")
 
     if local and local.get("market") != best.get("market"):
         st.caption(
-            f"{T['nearest']}: **{local.get('market')}** "
+            f"{T['nearest']}: **{_tr(local.get('market',''), lang_choice)}** "
             f"({local.get('distance_km',0)} km) — ₹{local.get('net_price_per_q',0):,.0f}/q"
         )
 
@@ -461,18 +749,36 @@ with tab_dashboard:
             "market", "district", "distance_km", "apmc_price",
             "transport_per_q", "commission_per_q", "net_price_per_q", "total_net_revenue",
         ]]
+        # Identify the winning row by net price BEFORE we format strings
+        winner_idx = int(df["net_price_per_q"].idxmax())
+
+        # Translate market & district names if not in English mode
+        if lang_choice != "English":
+            df["market"]   = df["market"].apply(lambda x: _tr(x, lang_choice))
+            df["district"] = df["district"].apply(lambda x: _tr(x, lang_choice))
         df = df.rename(columns={
             "market": T["tbl_market"], "district": T["tbl_district"],
             "distance_km": T["tbl_dist"], "apmc_price": T["tbl_apmc"],
             "transport_per_q": T["tbl_transport"], "commission_per_q": T["tbl_comm"],
             "net_price_per_q": T["tbl_net"], "total_net_revenue": T["tbl_total"],
         })
-        # Format distance to 1 decimal
         df[T["tbl_dist"]] = df[T["tbl_dist"]].apply(lambda x: f"{x:.1f}")
         for col in [T["tbl_apmc"], T["tbl_transport"], T["tbl_comm"], T["tbl_net"], T["tbl_total"]]:
             if col in df.columns:
                 df[col] = df[col].apply(lambda x: f"₹{x:,.0f}")
-        st.table(df.reset_index(drop=True))
+
+        # Highlight winning row: pale green background + bold + green left border
+        def _highlight_winner(row):
+            if row.name == winner_idx:
+                return [
+                    "background-color: #ecfdf5; "
+                    "font-weight: 600; "
+                    "border-left: 4px solid #10b981;"
+                ] * len(row)
+            return [""] * len(row)
+
+        styled = df.style.apply(_highlight_winner, axis=1)
+        st.dataframe(styled, use_container_width=True, hide_index=True)
 
     shared = result.get("shared_transport_opportunity")
     if shared:
@@ -484,46 +790,77 @@ with tab_dashboard:
             for i in m_insights:
                 st.markdown(f"- {_tr(i, lang_choice)}")
 
+    st.divider()
+
     # --- Agent 4: Decision details -----------------------------------------
     st.header(T["decision_header"])
-    c1, c2, c3 = st.columns(3)
     shelf = result.get("shelf_life") or {}
     weather = result.get("weather") or {}
     fest = result.get("next_festival")
 
-    c1.metric(T["shelf_life"], f"{shelf.get('days','-')} {T['days']}")
-    c2.metric(T["rain"], f"{weather.get('rain_mm_3d',0)} mm")
-    c3.metric(
-        T["next_festival"],
-        f"{fest['name']} ({fest['days_away']}d)" if fest else "—",
-    )
+    # Traffic-light cards: weather risk · shelf life · festival countdown
+    risk_level, risk_label_mr, risk_color = _weather_risk(weather)
+    shelf_days = int(shelf.get("days") or 0)
+    shelf_pct = max(0.0, min(1.0, shelf_days / 30.0))
+    shelf_color = "green" if shelf_days >= 20 else ("amber" if shelf_days >= 10 else "red")
+    weather_summary_short = _tr(weather.get("summary", "-"), lang_choice)
+    shelf_note_short = _tr(shelf.get("note", "—"), lang_choice)
 
-    st.markdown(f"**{T['weather_outlook']}:** {_tr(weather.get('summary','-'), lang_choice)}")
-    if shelf.get("note"):
-        st.markdown(f"**{T['storage_note']}:** {_tr(shelf['note'], lang_choice)}")
-    if fest:
+    tc1, tc2, tc3 = st.columns(3)
+    with tc1:
         st.markdown(
-            f"**{T['festival_driver']}:** {fest['name']} — {fest['days_away']} {T['days']} — "
-            f"+{fest['spike_pct']}% ({_tr(fest['reason'], lang_choice)})"
+            f"<div class='ms-card ms-card-{risk_color}'>"
+            f"<div class='ms-card-title'>{T['weather_outlook']}<div class='ms-en-sub'>Weather risk</div></div>"
+            f"<div class='ms-card-value'>{risk_label_mr}</div>"
+            f"<div class='ms-card-sub'>{weather_summary_short}</div>"
+            f"</div>",
+            unsafe_allow_html=True,
         )
+    with tc2:
+        st.markdown(
+            f"<div class='ms-card ms-card-{shelf_color}'>"
+            f"<div class='ms-card-title'>{T['shelf_life']}<div class='ms-en-sub'>Shelf life</div></div>"
+            f"<div class='ms-card-value'>{shelf_days} / 30 {T['days']}</div>"
+            f"<div class='ms-card-sub'>{shelf_note_short}</div>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+    with tc3:
+        if fest:
+            fest_name_disp = _tr(fest["name"], lang_choice)
+            fest_reason_disp = _tr(fest["reason"], lang_choice)
+            # Festival demand is always amber — represents an opportunity, not a
+            # safe/risk binary. Same colour regardless of spike size.
+            st.markdown(
+                f"<div class='ms-card ms-card-amber'>"
+                f"<div class='ms-card-title'>{T['festival_driver']}<div class='ms-en-sub'>Festival demand</div></div>"
+                f"<div class='ms-card-value'>{fest_name_disp} · {fest['days_away']} {T['days']}</div>"
+                f"<div class='ms-card-sub'>+{fest['spike_pct']}% — {fest_reason_disp}</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f"<div class='ms-card'>"
+                f"<div class='ms-card-title'>{T['festival_driver']}<div class='ms-en-sub'>Festival demand</div></div>"
+                f"<div class='ms-card-value'>—</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
 
+    # ----- संपूर्ण तर्क · Full reasoning ------------------------------------
+    # These bullets come from Agent 4's `decision_insights` and explain WHY
+    # the rule engine picked the recommendation it did — the first bullet is
+    # the actual decision reason ("Prices trending up... hold for better
+    # price"), the rest add supporting context (shelf, weather, festival).
+    st.markdown("")  # small spacer
+    st.subheader(T["full_reasoning"])
     decision_insights = result.get("decision_insights") or []
-    if decision_insights:
-        st.subheader(T["full_reasoning"])
-        for i in decision_insights:
-            st.markdown(f"- {_tr(i, lang_choice)}")
-
-    # Farmer-facing bilingual paragraph (produced by the Decision Advisor)
-    explanation = result.get("explanation") or {}
-    if explanation:
-        st.subheader(T["explainer_header"])
-        ec1, ec2 = st.columns(2)
-        with ec1:
-            st.markdown(f"**{T['explainer_marathi']}**")
-            st.markdown(explanation.get("marathi", "—"))
-        with ec2:
-            st.markdown(f"**{T['explainer_english']}**")
-            st.markdown(explanation.get("english", "—"))
+    for line in decision_insights:
+        st.markdown(
+            f"<div class='ms-reason'>•  {_tr(line, lang_choice)}</div>",
+            unsafe_allow_html=True,
+        )
 
     msp_adv = result.get("msp_advisory")
     if msp_adv:
@@ -534,6 +871,8 @@ with tab_dashboard:
             f"Check eNAM / FCI."
         )
         st.info(f"{T['msp_alt']} {_tr(msp_msg, lang_choice)}")
+
+    st.divider()
 
 
 # ==========================================================================
