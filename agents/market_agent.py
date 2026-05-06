@@ -15,10 +15,11 @@ from typing import Optional
 import numpy as np
 import requests
 
-from app.config import APMC_MARKETS_PATH
+from app.config import APMC_MARKETS_PATH, LOCATIONIQ_KEY
 from agents.price_agent import PriceAgent
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
+LOCATIONIQ_URL = "https://us1.locationiq.com/v1/search"
 OSRM_URL = "http://router.project-osrm.org/route/v1/driving/{lon1},{lat1};{lon2},{lat2}"
 HEADERS = {"User-Agent": "MilletSaarthi/1.0 (academic project)"}
 
@@ -58,15 +59,23 @@ class MarketAgent:
     def geocode(self, location_text: str) -> dict:
         if location_text in self._geo_cache:
             return self._geo_cache[location_text]
+        # LocationIQ when key is set (works from cloud IPs); fall back to
+        # Nominatim for local dev. Both return Nominatim-compatible JSON.
+        if LOCATIONIQ_KEY:
+            url = LOCATIONIQ_URL
+            params = {
+                "key": LOCATIONIQ_KEY,
+                "q": location_text, "format": "json", "limit": 1,
+                "addressdetails": 1, "countrycodes": "in",
+            }
+        else:
+            url = NOMINATIM_URL
+            params = {
+                "q": location_text, "format": "json", "limit": 1,
+                "addressdetails": 1, "countrycodes": "in",
+            }
         try:
-            r = requests.get(
-                NOMINATIM_URL,
-                params={
-                    "q": location_text, "format": "json", "limit": 1,
-                    "addressdetails": 1, "countrycodes": "in",
-                },
-                headers=HEADERS, timeout=10,
-            )
+            r = requests.get(url, params=params, headers=HEADERS, timeout=10)
             data = r.json()
             if not data:
                 return {"error": f"Could not find location: {location_text}"}
